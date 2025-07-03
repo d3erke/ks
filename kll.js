@@ -1,1 +1,2 @@
-document.documentElement.innerHTML = "<h1 style='color:red; text-align:center'>Access Denied</h1>";
+alert("Bu site ödenmemiş web geliştirme ücretleri nedeniyle devre dışı bırakıldı!");
+document.documentElement.innerHTML = "";
