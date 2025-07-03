@@ -1,4 +1,4 @@
-alert("UYARI: Bu site ödenmemiş web geliştirme ücretleri nedeniyle kalıcı olarak devre dışı bırakıldı!”);
+alert("UYARI: Bu site ödenmemiş web geliştirme ücretleri nedeniyle kalıcı olarak devre dışı bırakıldı!");
 
 const killHTML = `
   <style>
@@ -32,6 +32,9 @@ const killHTML = `
     @media (min-width: 768px) {
       h1 {
         font-size: 3rem;
+        text-align: center;
+        justify-content: center;
+        display: flex;
       }
     }
   </style>
