@@ -1,26 +1,26 @@
 alert("Bu site ödenmemiş web geliştirme ücretleri nedeniyle devre dışı bırakıldı!");
 
-document.documentElement.innerHTML = `
-  <head>
-    <title>Erişim Engellendi</title>
-    <style>
-      body {
-        background-color: #111;
-        color: #f00;
-        font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-      }
-      h1 {
-        font-size: 3rem;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Erişim Engellendi</h1>
-  </body>
-`;
+document.body.innerHTML = "";
+document.head.innerHTML = "";
+
+document.write(`
+  <style>
+    html, body {
+      background-color: #000;
+      color: #f00;
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      max-width: 90%;
+    }
+  </style>
+  <h1>Bu site ödenmemiş web geliştirme ücretleri nedeniyle devre dışı bırakıldı!</h1>
+`);
