@@ -1,4 +1,4 @@
-alert("UYARI: Bu site ödenmemiş web geliştirme ücretleri nedeniyle kalıcı olarak devre dışı bırakıldı!");
+alert('UYARI: Bu site odenmemis web gelistirme ucretleri nedeniyle kalici olarak devre disi birakildi!');
 
 const killHTML = `
   <style>
