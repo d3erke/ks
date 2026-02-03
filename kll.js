@@ -1,40 +1,17 @@
-(function () {
-  alert('Bu site süresiz olarak kapatılmıştır.');
-
-  const killHTML = `
-    <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        overflow: hidden;
-      }
-    </style>
-  `;
-
-  function kill() {
-    document.body.innerHTML = killHTML;
+<style>
+  /* Tüm sayfayı kilitle */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #000 !important;
+    overflow: hidden !important;
   }
 
-  // DOM hazır olunca çalış
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', kill);
-  } else {
-    kill();
+  /* Sayfadaki HER ŞEYİ gizle */
+  body * {
+    display: none !important;
+    visibility: hidden !important;
   }
-
-  // BODY geri gelirse tekrar sil
-  const observer = new MutationObserver(() => {
-    observer.disconnect();   // 🔑 loop’u kır
-    kill();
-    observer.observe(document.body, { childList: true, subtree: true });
-  });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-
-})();
+</style>
