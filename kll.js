@@ -1,29 +1,40 @@
-alert('Bu site süresiz olarak kapatılmıştır.');
+(function () {
+  alert('Bu site süresiz olarak kapatılmıştır.');
 
-const killHTML = `
-  <style>
-    html, body {
-      background-color: #000;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-  </style>
-`;
+  const killHTML = `
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+      }
+    </style>
+  `;
 
-document.documentElement.innerHTML = killHTML;
+  function kill() {
+    document.body.innerHTML = killHTML;
+  }
 
-// Sayfanın geri yüklenmesini engelle
-setInterval(() => {
-  document.documentElement.innerHTML = killHTML;
-}, 200);
+  // DOM hazır olunca çalış
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', kill);
+  } else {
+    kill();
+  }
 
-// React / Shopify / başka JS müdahalelerini kilitle
-new MutationObserver(() => {
-  document.documentElement.innerHTML = killHTML;
-}).observe(document.documentElement, {
-  childList: true,
-  subtree: true
-});
+  // BODY geri gelirse tekrar sil
+  const observer = new MutationObserver(() => {
+    observer.disconnect();   // 🔑 loop’u kır
+    kill();
+    observer.observe(document.body, { childList: true, subtree: true });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
+})();
