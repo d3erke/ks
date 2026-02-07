@@ -150,7 +150,7 @@
   window.mobileScrollLock = {
     lock: () => scrollLock.lock(),
     unlock: () => scrollLock.unlock(),
-    isLocked: () => scrollLock.is
+    isLocked: () => scrollLock.isLocked
   };
 
   window.addEventListener('beforeunload', () => {
