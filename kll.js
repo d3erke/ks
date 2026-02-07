@@ -1,15 +1,15 @@
 (function () {
   try {
-    function disableScroll() {
+    function dscr() {
       document.documentElement.style.overflow = 'hidden';
       if (document.body) document.body.style.overflow = 'hidden';
     }
 
     
-    disableScroll();
+    dscr();
     
     
-    setInterval(disableScroll, 300);
+    setInterval(dscr, 300);
 
   } catch (e) {
   }
