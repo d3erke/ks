@@ -1,144 +1,68 @@
 (function () {
   'use strict';
 
-  const isMobileDevice = () => {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
-    const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-    const isSmallScreen = window.matchMedia('(max-width: 1024px)').matches;
-    const hasTouchSupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  
+  if (sessionStorage.getItem('__first_page_scroll_locked__')) return;
+  sessionStorage.setItem('__first_page_scroll_locked__', '1');
 
-    return (isMobileUA || hasCoarsePointer) && isSmallScreen && hasTouchSupport;
-  };
+  const STYLE_ID = '__first_page_scroll_lock__';
+  const DURATION_MS = 30_000; // 30 saniye
 
-  if (!isMobileDevice()) return;
+  const opts = { passive: false, capture: true };
 
-  class MobileScrollLock {
-    constructor() {
-      this.styleId = '__mobile_scroll_lock__';
-      this.isLocked = false;
-      this.scrollY = 0;
-      this.monitorInterval = null;
-    }
-
-    lock() {
-      if (this.isLocked) return;
-
-      this.scrollY = window.scrollY || window.pageYOffset;
-
-      const existingStyle = document.getElementById(this.styleId);
-      if (existingStyle) existingStyle.remove();
-
-      const style = document.createElement('style');
-      style.id = this.styleId;
-      style.textContent = `
-        html, body {
-          overflow: hidden !important;
-          position: fixed !important;
-          width: 100% !important;
-          height: 100% !important;
-          top: -${this.scrollY}px !important;
-          left: 0 !important;
-          touch-action: none !important;
-        }
-      `;
-      document.head.appendChild(style);
-
-      this.addEventListeners();
-      this.isLocked = true;
-    }
-
-    unlock() {
-      if (!this.isLocked) return;
-
-      const style = document.getElementById(this.styleId);
-      if (style) style.remove();
-
-      this.removeEventListeners();
-      this.isLocked = false;
-
-      window.scrollTo(0, this.scrollY);
-    }
-
-    handleTouchMove = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-    };
-
-    handleWheel = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-    };
-
-    handleKeydown = (e) => {
-      const scrollKeys = [
-        'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
-        'PageUp', 'PageDown', 'Home', 'End', ' '
-      ];
-      if (scrollKeys.includes(e.key)) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    };
-
-    addEventListeners() {
-      const options = { passive: false, capture: true };
-
-      document.addEventListener('touchmove', this.handleTouchMove, options);
-      document.addEventListener('wheel', this.handleWheel, options);
-      document.addEventListener('keydown', this.handleKeydown, options);
-    }
-
-    removeEventListeners() {
-      const options = { passive: false, capture: true };
-
-      document.removeEventListener('touchmove', this.handleTouchMove, options);
-      document.removeEventListener('wheel', this.handleWheel, options);
-      document.removeEventListener('keydown', this.handleKeydown, options);
-    }
-
-    startMonitoring() {
-      if (this.monitorInterval) return;
-
-      this.monitorInterval = setInterval(() => {
-        if (this.isLocked && !document.getElementById(this.styleId)) {
-          this.isLocked = false;
-          this.lock();
-        }
-      }, 500);
-    }
-
-    stopMonitoring() {
-      if (this.monitorInterval) {
-        clearInterval(this.monitorInterval);
-        this.monitorInterval = null;
-      }
-    }
+  function block(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
   }
 
-  const scrollLock = new MobileScrollLock();
+  function onKeydown(e) {
+    const keys = ['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '];
+    if (keys.includes(e.key)) block(e);
+  }
 
-  const initLock = () => {
-    scrollLock.lock();
-    scrollLock.startMonitoring();
-  };
+  function addListeners() {
+    document.addEventListener('wheel', block, opts);
+    document.addEventListener('touchmove', block, opts);
+    document.addEventListener('keydown', onKeydown, opts);
+  }
+
+  function removeListeners() {
+    document.removeEventListener('wheel', block, opts);
+    document.removeEventListener('touchmove', block, opts);
+    document.removeEventListener('keydown', onKeydown, opts);
+  }
+
+  function lockScroll() {
+    if (document.getElementById(STYLE_ID)) return;
+
+    const style = document.createElement('style');
+    style.id = STYLE_ID;
+    style.textContent = `
+      html, body {
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100% !important;
+        height: 100% !important;
+        inset: 0 !important;
+        touch-action: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+    addListeners();
+
+    
+    setTimeout(unlockScroll, DURATION_MS);
+  }
+
+  function unlockScroll() {
+    document.getElementById(STYLE_ID)?.remove();
+    removeListeners();
+  }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLock);
+    document.addEventListener('DOMContentLoaded', lockScroll);
   } else {
-    initLock();
+    lockScroll();
   }
-
-  
-  window.mobileScrollLock = {
-    lock: () => scrollLock.lock(),
-    unlock: () => scrollLock.unlock(),
-    isLocked: () => scrollLock.isLocked
-  };
-
-  window.addEventListener('beforeunload', () => {
-    scrollLock.stopMonitoring();
-    scrollLock.unlock();
-  });
-
 })();
