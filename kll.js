@@ -17,8 +17,8 @@
     constructor() {
       this.styleId = '__mobile_scroll_lock__';
       this.isLocked = false;
-      this.touchStartY = 0;
       this.scrollY = 0;
+      this.monitorInterval = null;
     }
 
     lock() {
@@ -32,20 +32,14 @@
       const style = document.createElement('style');
       style.id = this.styleId;
       style.textContent = `
-        html {
+        html, body {
           overflow: hidden !important;
           position: fixed !important;
           width: 100% !important;
           height: 100% !important;
           top: -${this.scrollY}px !important;
-        }
-        body {
-          overflow: hidden !important;
-          position: fixed !important;
-          width: 100% !important;
-          height: 100% !important;
+          left: 0 !important;
           touch-action: none !important;
-          -webkit-overflow-scrolling: auto !important;
         }
       `;
       document.head.appendChild(style);
@@ -60,15 +54,11 @@
       const style = document.getElementById(this.styleId);
       if (style) style.remove();
 
-      window.scrollTo(0, this.scrollY);
-
       this.removeEventListeners();
       this.isLocked = false;
-    }
 
-    handleTouchStart = (e) => {
-      this.touchStartY = e.touches[0].clientY;
-    };
+      window.scrollTo(0, this.scrollY);
+    }
 
     handleTouchMove = (e) => {
       e.preventDefault();
@@ -85,7 +75,6 @@
         'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
         'PageUp', 'PageDown', 'Home', 'End', ' '
       ];
-
       if (scrollKeys.includes(e.key)) {
         e.preventDefault();
         e.stopPropagation();
@@ -95,35 +84,28 @@
     addEventListeners() {
       const options = { passive: false, capture: true };
 
-      document.addEventListener('touchstart', this.handleTouchStart, options);
       document.addEventListener('touchmove', this.handleTouchMove, options);
       document.addEventListener('wheel', this.handleWheel, options);
       document.addEventListener('keydown', this.handleKeydown, options);
-
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
     }
 
     removeEventListeners() {
       const options = { passive: false, capture: true };
 
-      document.removeEventListener('touchstart', this.handleTouchStart, options);
       document.removeEventListener('touchmove', this.handleTouchMove, options);
       document.removeEventListener('wheel', this.handleWheel, options);
       document.removeEventListener('keydown', this.handleKeydown, options);
     }
 
     startMonitoring() {
+      if (this.monitorInterval) return;
+
       this.monitorInterval = setInterval(() => {
-        if (this.isLocked) {
-          const style = document.getElementById(this.styleId);
-          if (!style) {
-            this.isLocked = false;
-            this.lock();
-          }
+        if (this.isLocked && !document.getElementById(this.styleId)) {
+          this.isLocked = false;
+          this.lock();
         }
-      }, 1000);
+      }, 500);
     }
 
     stopMonitoring() {
@@ -147,6 +129,7 @@
     initLock();
   }
 
+  
   window.mobileScrollLock = {
     lock: () => scrollLock.lock(),
     unlock: () => scrollLock.unlock(),
@@ -157,11 +140,5 @@
     scrollLock.stopMonitoring();
     scrollLock.unlock();
   });
-
-  window.addEventListener('scroll', (e) => {
-    if (scrollLock.isLocked) {
-      window.scrollTo(0, scrollLock.scrollY);
-    }
-  }, { passive: true });
 
 })();
