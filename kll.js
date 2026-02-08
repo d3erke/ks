@@ -1,123 +1,60 @@
-(function() {
+(function () {
   'use strict';
-  
-  const DURATION = 30000;
-  const STYLE_ID = '__page_lock__';
-  const OVERLAY_ID = '__lock_overlay__';
-  
-  let locked = false;
-  let unlockTimer = null;
-  let maintainInterval = null;
-  
-  const events = [
-    'mousedown', 'mouseup', 'click', 'dblclick', 'contextmenu',
-    'touchstart', 'touchmove', 'touchend',
-    'wheel', 'scroll',
-    'keydown', 'keypress'
-  ];
-  
-  function block(e) {
-    if (locked) {
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-    }
-  }
-  
-  function createStyle() {
-    if (document.getElementById(STYLE_ID)) return;
-    
-    const style = document.createElement('style');
-    style.id = STYLE_ID;
-    style.textContent = `
-      html, body {
-        overflow: hidden !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        touch-action: none !important;
-      }
-      * {
-        pointer-events: none !important;
-        user-select: none !important;
-      }
-    `;
-    (document.head || document.documentElement).appendChild(style);
-  }
-  
-  function createOverlay() {
-    if (document.getElementById(OVERLAY_ID)) return;
-    if (!document.body) return;
-    
-    const overlay = document.createElement('div');
-    overlay.id = OVERLAY_ID;
-    overlay.style.cssText = `
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      z-index: 999999999 !important;
-      background: transparent !important;
-      pointer-events: all !important;
-      cursor: not-allowed !important;
-    `;
-    document.body.appendChild(overlay);
-  }
-  
-  function maintain() {
-    if (!locked) return;
-    
-    createStyle();
-    createOverlay();
-    
-    if (window.scrollX !== 0 || window.scrollY !== 0) {
-      window.scrollTo(0, 0);
-    }
-  }
-  
+
+  var OVERLAY_ID = '__hard_lock_overlay__';
+  var DURATION = 30000;
+
   function lock() {
-    if (locked) return;
-    locked = true;
-    
-    createStyle();
-    createOverlay();
-    
-    events.forEach(evt => {
-      document.addEventListener(evt, block, { passive: false, capture: true });
-      window.addEventListener(evt, block, { passive: false, capture: true });
-    });
-    
-    maintainInterval = setInterval(maintain, 200);
-    
-    unlockTimer = setTimeout(unlock, DURATION);
-    
-    console.log('🔒 LOCKED for 30 seconds');
+    if (document.getElementById(OVERLAY_ID)) return;
+
+    // Scroll'u fiziksel olarak kilitle
+    document.documentElement.style.overflow = 'hidden';
+    document.body && (document.body.style.overflow = 'hidden');
+
+    var overlay = document.createElement('div');
+    overlay.id = OVERLAY_ID;
+
+    // INLINE style = override edilemez
+    overlay.style.cssText =
+      'position:fixed;' +
+      'top:0;' +
+      'left:0;' +
+      'width:100vw;' +
+      'height:100vh;' +
+      'background:rgba(0,0,0,0);' +
+      'z-index:2147483647;' +
+      'pointer-events:all;' +
+      'touch-action:none;';
+
+    // iOS Safari GPU / repaint fix
+    overlay.style.webkitTransform = 'translateZ(0)';
+    overlay.style.transform = 'translateZ(0)';
+
+    document.documentElement.appendChild(overlay);
+
+    console.log('🔒 PAGE LOCKED (30s)');
   }
-  
+
   function unlock() {
-    if (!locked) return;
-    locked = false;
-    
-    if (unlockTimer) clearTimeout(unlockTimer);
-    if (maintainInterval) clearInterval(maintainInterval);
-    
-    document.getElementById(STYLE_ID)?.remove();
-    document.getElementById(OVERLAY_ID)?.remove();
-    
-    events.forEach(evt => {
-      document.removeEventListener(evt, block, { passive: false, capture: true });
-      window.removeEventListener(evt, block, { passive: false, capture: true });
-    });
-    
-    console.log('🔓 UNLOCKED');
+    var overlay = document.getElementById(OVERLAY_ID);
+    if (overlay) overlay.remove();
+
+    document.documentElement.style.overflow = '';
+    document.body && (document.body.style.overflow = '';
+
+    console.log('🔓 PAGE UNLOCKED');
   }
-  
-  lock();
-  
+
+  // DOM hazır olunca kilitle
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', lock, { once: true });
+  } else {
+    lock();
+  }
+
+  // 30 saniye sonra aç
+  setTimeout(unlock, DURATION);
+
+  // Manuel override (debug için)
   window.__forceUnlock = unlock;
 })();
