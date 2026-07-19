@@ -319,12 +319,11 @@ section{padding:92px 0}
 .award-top{display:flex;align-items:center;gap:12px}
 .award-ico{
   width:46px;height:46px;border-radius:13px;flex-shrink:0;
-  display:grid;place-items:center;
+  display:flex;align-items:center;justify-content:center;
   background:rgba(233,217,184,.16);
   color:var(--gold-soft);
 }
-.award-ico svg{width:26px;height:26px}
-.award-ico img{width:28px;height:28px}
+.award-ico svg,.award-ico img{width:26px;height:26px;display:block;flex:none}
 .award-card b{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
 .award-card strong{font-family:var(--font-display);font-weight:600;font-size:1.08rem;color:#EFE6D6;display:block}
 .award-card p{color:#C9BBA4;font-size:.88rem}
@@ -455,7 +454,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
       <div>
         <span class="kicker">Ortakent · Bodrum</span>
         <h1>Bir tencere kuru fasulye, <em>1955'ten beri.</em></h1>
-        <p class="lead">Hüseyin Uysal'ın Ortakent'te açtığı lokantadayız. Fasulye kısık ateşte pişer, turşu burada kurulur, tencere her sabah tazelenir. 70 yıldır böyle — buyrun soframıza.</p>
+        <p class="lead">Hüseyin Uysal'ın Ortakent'te açtığı lokantadayız. Fasulye kısık ateşte pişer, turşu burada kurulur, her şey her sabah taze hazırlanır. 70 yıldır böyle.</p>
         <div class="hero-ctas">
           <a class="btn btn-wa" href="https://wa.me/905076502833?text=Merhaba%2C%20sipari%C5%9F%20%2F%20rezervasyon%20i%C3%A7in%20yaz%C4%B1yorum." target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .7-.1 1.2Z"/></svg>
@@ -539,21 +538,21 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
           <div class="feature-photo"><img src="img/kuru-fasulye.jpg" alt="Kuru fasulye" loading="lazy"></div>
           <div class="feature-body">
             <h3>Kuru Fasulye</h3>
-            <p>1955'ten beri aynı tarif: kısık ateşte, sabırla. Kaşık kaldıran kıvam.</p>
+            <p>1955'ten beri aynı tarif. Kısık ateşte, sabırla pişer.</p>
           </div>
         </article>
         <article class="feature">
-          <div class="feature-photo"><img src="img/tas-kebabi.jpg" alt="Tas kebabı" loading="lazy" style="object-position:50% 65%"></div>
+          <div class="feature-photo"><img src="img/tas-kebabi.jpg" alt="Tas kebabı" loading="lazy" style="object-position:50% 60%;transform:scale(1.35);transform-origin:50% 45%"></div>
           <div class="feature-body">
             <h3>Tas Kebabı</h3>
-            <p>Ağır ateşte pişer, çatala gelmeden dağılır. Fasulyeden sonra en çok seveni olan.</p>
+            <p>Ağır ateşte pişer; çatal değmeden dağılır.</p>
           </div>
         </article>
         <article class="feature">
           <div class="feature-photo"><img src="img/sofra.jpg" alt="Tereyağlı pirinç pilavı" loading="lazy" style="transform:scale(2.8);transform-origin:100% 62%"></div>
           <div class="feature-body">
             <h3>Pirinç Pilavı</h3>
-            <p>Fasulyenin can yoldaşı; tane tane, tereyağlı.</p>
+            <p>Tane tane, tereyağlı.</p>
           </div>
         </article>
         <article class="feature">
@@ -561,7 +560,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
           <div class="feature-photo"><img src="img/biber-tursusu.jpg" alt="Ev yapımı biber turşusu" loading="lazy"></div>
           <div class="feature-body">
             <h3>Biber Turşusu</h3>
-            <p>Kendi kavanozumuzdan; sofranın olmazsa olmazı. Beğenen eve de alır.</p>
+            <p>Burada kurulur. İsteyen kavanozla eve de alır.</p>
           </div>
         </article>
       </div>
@@ -587,12 +586,12 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
           <div class="feature-photo"><img src="img/patates-yemegi.jpg" alt="Patates yemeği" loading="lazy"></div>
           <div class="feature-body">
             <h3>Patates Yemeği</h3>
-            <p>Bazen piliçli, bazen sade; günün tenceresine bakar.</p>
+            <p>Bazen piliçli, bazen sade; güne göre değişir.</p>
           </div>
         </article>
       </div>
 
-      <p class="menu-note reveal">Piliç ve mevsim sebzeleri de sık sık tencerededir; yemeğin ardından çay ile helva bizden. Tencereler öğlen en tazedir — <b>erken gelen kazanır.</b> Günün menüsü ve fiyatlar için WhatsApp'tan yazın.</p>
+      <p class="menu-note reveal">Piliç ve mevsim sebzeleri de pişer; yemekten sonra çay ve helva ikramdır. Yemekler öğlen saatlerinde en tazedir. <b>Günün menüsü için WhatsApp'tan sorabilirsiniz.</b></p>
 
       <div class="gallery reveal">
         <figure><img src="img/kazan-fasulye.jpg" alt="Kaynayan kuru fasulye kazanı" loading="lazy" style="object-position:50% 60%"></figure>
@@ -655,8 +654,8 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
     <div class="press reveal">
       <div class="press-inner">
         <span class="kicker">Basında Biz</span>
-        <h2>Hikâyemizi bir de onlardan dinleyin</h2>
-        <p>Sağ olsunlar, gazeteciler de yolunu buraya düşürdü; ustamızı çekip hikâyemizi yazdılar. Güzel de anlatmışlar.</p>
+        <h2>Hakkımızda yazılanlar</h2>
+        <p>Zaman zaman basında da yer alıyoruz. Birkaçı burada.</p>
         <div class="press-cards">
           <a class="press-card" href="https://www.aa.com.tr/tr/insana-dair/kuru-fasulyeci-97-yasindaki-huseyin-amca-65-yildir-tezgahindan-ayrilamiyor/2999216" target="_blank" rel="noopener">
             <b>Anadolu Ajansı</b>
@@ -678,18 +677,18 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
         <div class="press-divider">Misafirlerimiz Ne Diyor</div>
         <div class="award-cards">
           <a class="award-card" href="https://restaurantguru.com/Meshur-Kurufasulyeci-HuseyIn-Amca-Ortakentyahsi-Belediyesi" target="_blank" rel="noopener">
-            <div class="award-top"><span class="award-ico"><img src="https://awards.infcdn.net/img/star_red.svg" alt="Restaurant Guru yıldızı" loading="lazy"></span><div><b>Restaurant Guru</b><strong>Recommended 2026</strong></div></div>
-            <p>Restaurant Guru'nun 2026 "Tavsiye Edilen" seçkisine girdik.</p>
+            <div class="award-top"><span class="award-ico"><img src="https://awards.infcdn.net/img/star_red.svg" alt="Restaurant Guru yıldızı" width="26" height="26" loading="lazy"></span><div><b>Restaurant Guru</b><strong>Recommended 2026</strong></div></div>
+            <p>2026 "Recommended" seçkisindeyiz.</p>
             <span>Profili gör <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg></span>
           </a>
           <a class="award-card" href="https://www.tripadvisor.com.tr/Restaurant_Review-g298662-d9999202-Reviews-Meshur_Kurufasulyeci_HuseyIn_Amca-Ortakent_Bodrum_District_Mugla_Province_Turkish.html" target="_blank" rel="noopener">
-            <div class="award-top"><span class="award-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="13.5" r="4.4" stroke="#34E0A1" stroke-width="1.7"/><circle cx="7" cy="13.5" r="1.7" fill="#34E0A1"/><circle cx="17" cy="13.5" r="4.4" stroke="#34E0A1" stroke-width="1.7"/><circle cx="17" cy="13.5" r="1.7" fill="#34E0A1"/><path d="M2.6 13.5C2.6 10 4.8 8 7.6 7.6 6 6.8 4.4 6.4 2 6.4c.8.9 1 2.1.6 3.1M21.4 13.5c0-3.5-2.2-5.5-5-5.9C18 6.8 19.6 6.4 22 6.4c-.8.9-1 2.1-.6 3.1M9.8 7.5C10.5 7 11.2 6.7 12 6.7s1.5.3 2.2.8M12 17.9l-1.2 1.6" stroke="#34E0A1" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><b>Tripadvisor</b><strong>Misafir yorumları</strong></div></div>
+            <div class="award-top"><span class="award-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="13.5" r="4.4" stroke="#34E0A1" stroke-width="1.7"/><circle cx="7" cy="13.5" r="1.7" fill="#34E0A1"/><circle cx="17" cy="13.5" r="4.4" stroke="#34E0A1" stroke-width="1.7"/><circle cx="17" cy="13.5" r="1.7" fill="#34E0A1"/><path d="M2.6 13.5C2.6 10 4.8 8 7.6 7.6 6 6.8 4.4 6.4 2 6.4c.8.9 1 2.1.6 3.1M21.4 13.5c0-3.5-2.2-5.5-5-5.9C18 6.8 19.6 6.4 22 6.4c-.8.9-1 2.1-.6 3.1M9.8 7.5C10.5 7 11.2 6.7 12 6.7s1.5.3 2.2.8M12 17.9l-1.2 1.6" stroke="#34E0A1" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><b>Tripadvisor</b><strong>Misafir yorumları</strong></div></div>
             <p>"Yöresel günlük turşu müthiş." — bir misafirimizden</p>
             <span>Yorumları oku <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg></span>
           </a>
           <a class="award-card" href="https://www.google.com/search?sa=X&amp;q=Me%C5%9Fhur+Kuru+Fasulyeci+-+H%C3%BCseyin+Amcan%C4%B1n+Yeri+Reviews&amp;rflfq=1&amp;num=20&amp;stick=H4sIAAAAAAAAAONgkxIxNDG2sDC0NLQwsTA3MTUyNjMyMNzAyPiK0dw39ej8jNIiBe_SolIFt8Ti0pzK1ORMBV0Fj8N7ilMrM_MUHHOTE_OObMxTiEwtylQISi3LTC0vXsRKrk4ABsM93I8AAAA&amp;rldimm=14388191848745236201&amp;tbm=lcl&amp;hl=tr#lkt=LocalPoiReviews" target="_blank" rel="noopener">
-            <div class="award-top"><span class="award-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span><div><b>Google</b><strong>Yorum bırakın</strong></div></div>
-            <p>Memnun kaldıysanız iki satır yazın; bizim için en kıymetlisi bu.</p>
+            <div class="award-top"><span class="award-ico"><svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span><div><b>Google</b><strong>Yorum bırakın</strong></div></div>
+            <p>Memnun kaldıysanız Google'da bir yorum bırakın.</p>
             <span>Google'da değerlendir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg></span>
           </a>
         </div>
@@ -717,8 +716,8 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
           </a>
           <div class="hours">
-            <p><b>Sabah dokuzda açıyoruz.</b></p>
-            <p>Tencereler bitince kapatıyoruz. Öğlen gelin, her şeyi taze bulursunuz.</p>
+            <p><b>Sabah 09.00'da açılır; yemekler bitince kapanır.</b></p>
+            <p>Öğlen saatleri en yoğun ve en taze zamandır.</p>
           </div>
         </div>
         <div class="visit-card reveal">
@@ -773,7 +772,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
           <li><a href="tel:+905076502833">+90 507 650 28 33</a></li>
           <li><a href="tel:+902523582129">0252 358 21 29</a></li>
           <li><a href="https://wa.me/905076502833" target="_blank" rel="noopener">WhatsApp'tan yazın</a></li>
-          <li>Sabah 09.00'da açılır; tencereler bitince kapanır</li>
+          <li>Sabah 09.00'da açılır; yemekler bitince kapanır</li>
         </ul>
       </div>
       <div class="foot">
