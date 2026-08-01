@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Menü — Meşhur Kuru Fasulyeci Hüseyin Amca'nın Yeri</title>
+<meta name="description" content="Ortakent, Bodrum. 1955'ten beri aynı tencere: kuru fasulye, tas kebabı, günün yemekleri, ev turşusu. Dijital menü.">
+<meta name="theme-color" content="#241B12">
+<meta property="og:title" content="Menü — Hüseyin Amca'nın Yeri">
+<meta property="og:description" content="1955'ten beri aynı lokanta, aynı tarif. Ortakent, Bodrum.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ks-deploy.vercel.app/img/kazan-fasulye.jpg">
+<link rel="canonical" href="https://ks-deploy.vercel.app/menu.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫘</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* --- ana sitedeki marka paleti --- */
+  --bg:#FBF6EC;
+  --bg-soft:#F4EBDA;
+  --paper:#FFFDF8;
+  --ink:#2E2418;
+  --ink-soft:#5C4F3D;
+  --muted:#8A7A62;
+  --brick:#A93B26;
+  --brick-deep:#7E2B1B;
+  --gold:#C08A2D;
+  --gold-soft:#E9D9B8;
+  --dark:#241B12;
+  --dark-2:#31251A;
+  --wa:#1FAF54;
+  --line:rgba(46,36,24,.14);
+  --line-soft:rgba(46,36,24,.08);
+  --radius:18px;
+  --font-display:"Fraunces",Georgia,serif;
+  --font-body:"Manrope",system-ui,-apple-system,sans-serif;
+  --shell:560px;
+  --bar-h:calc(64px + env(safe-area-inset-bottom));
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  background:var(--bg-soft);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overscroll-behavior-y:none;
+}
+::selection{background:var(--brick);color:#fff}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--brick);outline-offset:3px;border-radius:6px}
+
+/* masaüstünde ortada telefon eni bir "menü kitapçığı" */
+.shell{
+  max-width:var(--shell);
+  margin:0 auto;
+  background:var(--bg);
+  min-height:100vh;
+  position:relative;
+  box-shadow:0 0 0 1px var(--line-soft),0 30px 80px rgba(46,36,24,.14);
+  padding-bottom:calc(var(--bar-h) + 8px);
+}
+@media(min-width:600px){
+  body{background:var(--bg-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='2' cy='2' r='1' fill='%232E2418' opacity='.05'/%3E%3C/svg%3E")}
+}
+
+/* ---------- kapak ---------- */
+.cover{
+  position:relative;
+  background:var(--dark);
+  color:var(--gold-soft);
+  padding:20px 20px 22px;
+  overflow:hidden;
+  text-align:center;
+}
+.cover::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 78% 8%,rgba(192,138,45,.3),transparent 52%),
+    radial-gradient(circle at 12% 92%,rgba(169,59,38,.32),transparent 55%);
+  pointer-events:none;
+}
+.cover>*{position:relative;z-index:1}
+.cover-top{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-bottom:16px;
+}
+.lang{
+  display:inline-flex;padding:3px;border-radius:999px;
+  background:rgba(233,217,184,.12);border:1px solid rgba(233,217,184,.18);
+}
+.lang button{
+  padding:6px 13px;border-radius:999px;
+  font-size:.72rem;font-weight:800;letter-spacing:.1em;
+  color:rgba(233,217,184,.72);transition:background .18s,color .18s;
+}
+.lang button[aria-pressed="true"]{background:var(--gold-soft);color:var(--dark)}
+.since{
+  font-size:.64rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;
+  color:rgba(233,217,184,.6);
+}
+.crest{
+  width:50px;height:50px;margin:0 auto 13px;border-radius:50%;
+  background:var(--brick);color:var(--gold-soft);
+  display:grid;place-items:center;
+  box-shadow:0 0 0 1px rgba(233,217,184,.28),0 0 0 7px rgba(169,59,38,.2);
+}
+.crest svg{width:29px;height:29px}
+.cover h1{
+  font-family:var(--font-display);
+  font-size:clamp(1.5rem,6.4vw,1.95rem);
+  font-weight:600;line-height:1.16;letter-spacing:-.015em;
+  color:#F6EEDF;
+  text-wrap:balance;
+}
+.cover h1 em{font-style:italic;color:var(--gold)}
+.cover .tagline{
+  margin-top:9px;font-size:.88rem;color:rgba(233,217,184,.78);
+  max-width:26rem;margin-inline:auto;
+}
+.cover-meta{
+  margin-top:16px;padding-top:14px;
+  border-top:1px solid rgba(233,217,184,.16);
+  display:flex;flex-direction:column;align-items:center;gap:9px;
+}
+.meta-line{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.78rem;font-weight:600;color:rgba(233,217,184,.62);
+}
+.meta-line svg{width:13px;height:13px;flex-shrink:0}
+.chip-meta{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 12px;border-radius:999px;
+  background:rgba(233,217,184,.09);
+  border:1px solid rgba(233,217,184,.15);
+  font-size:.71rem;font-weight:700;color:rgba(233,217,184,.86);
+  white-space:nowrap;
+}
+.chip-meta svg{width:14px;height:14px;flex-shrink:0;opacity:.85}
+.chip-meta.is-gold{border-color:rgba(192,138,45,.5);color:var(--gold)}
+
+/* ---------- kategori şeridi (yapışkan) ---------- */
+.tabs{
+  position:sticky;top:0;z-index:40;
+  background:rgba(251,246,236,.96);
+  backdrop-filter:saturate(1.4) blur(10px);
+  -webkit-backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.tabs-scroll{
+  display:flex;gap:8px;overflow-x:auto;
+  padding:11px 16px;
+  scrollbar-width:none;-ms-overflow-style:none;
+  scroll-snap-type:x proximity;
+}
+.tabs-scroll::-webkit-scrollbar{display:none}
+.tab{
+  flex:0 0 auto;scroll-snap-align:center;
+  padding:9px 16px;border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  font-size:.82rem;font-weight:700;color:var(--ink-soft);
+  white-space:nowrap;
+  transition:background .18s,color .18s,border-color .18s;
+}
+.tab[aria-current="true"]{
+  background:var(--brick);border-color:var(--brick);color:#fff;
+  box-shadow:0 4px 12px rgba(169,59,38,.28);
+}
+
+/* ---------- bölüm başlığı ---------- */
+.sec{padding:30px 18px 4px;scroll-margin-top:60px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+.sec-head h2{
+  font-family:var(--font-display);
+  font-size:1.42rem;font-weight:600;letter-spacing:-.01em;
+}
+.sec-head .rule{flex:1;height:1px;background:linear-gradient(90deg,rgba(169,59,38,.35),transparent)}
+.sec-sub{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+
+/* ---------- yemek satırı ---------- */
+.items{display:flex;flex-direction:column;gap:9px}
+.item{
+  display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;
+  background:var(--paper);
+  border:1px solid var(--line-soft);
+  border-radius:16px;
+  padding:12px;
+  transition:border-color .18s,transform .12s,box-shadow .18s;
+}
+.item:hover{border-color:rgba(169,59,38,.32);box-shadow:0 8px 22px rgba(46,36,24,.07)}
+.item:active{transform:scale(.988)}
+.item-thumb{
+  position:relative;flex:0 0 auto;
+  width:76px;height:76px;border-radius:12px;overflow:hidden;
+  background:linear-gradient(150deg,rgba(169,59,38,.1),rgba(192,138,45,.16));
+}
+.item-thumb img{width:100%;height:100%;object-fit:cover}
+/* fotoğrafı olmayan ürünler için çizim yerine sade bir simge alanı */
+.item-thumb.is-art,.sheet-photo.is-art{
+  display:grid;place-items:center;
+  background:
+    radial-gradient(circle at 30% 25%,rgba(192,138,45,.22),transparent 60%),
+    linear-gradient(150deg,var(--bg-soft),var(--gold-soft));
+}
+.item-thumb.is-art{font-size:1.9rem}
+.sheet-photo.is-art{font-size:4.4rem}
+.item-main{flex:1;min-width:0;padding-top:2px}
+.item-title{
+  display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+}
+.item-name{
+  font-family:var(--font-display);
+  font-size:1.06rem;font-weight:600;line-height:1.3;
+}
+.price{
+  flex:0 0 auto;
+  font-family:var(--font-display);font-weight:600;font-size:1rem;
+  color:var(--brick);font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.price.is-free{color:var(--gold);font-style:italic;font-size:.92rem}
+.item-desc{
+  color:var(--ink-soft);font-size:.86rem;line-height:1.5;margin-top:3px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.badge{
+  font-size:.6rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
+  padding:4px 8px;border-radius:999px;line-height:1;
+  background:var(--bg-soft);color:var(--muted);
+}
+.badge.b-star{background:var(--brick);color:#fff}
+.badge.b-home{background:var(--gold-soft);color:var(--brick-deep)}
+.badge.b-veg{background:#E2EDDD;color:#3F6B37}
+.badge.b-gift{background:rgba(192,138,45,.16);color:#8A6317}
+
+/* ---------- araya giren kartlar ---------- */
+.note{
+  margin:22px 18px 0;
+  border:1px dashed rgba(169,59,38,.3);
+  border-radius:16px;
+  padding:18px 20px;
+  background:linear-gradient(150deg,rgba(169,59,38,.05),rgba(192,138,45,.07));
+}
+.note b{
+  display:block;font-family:var(--font-display);font-size:1.06rem;font-weight:600;
+  margin-bottom:5px;
+}
+.note p{color:var(--ink-soft);font-size:.87rem}
+.note .btn-inline{
+  display:inline-flex;align-items:center;gap:7px;margin-top:12px;
+  font-size:.83rem;font-weight:700;color:var(--brick);
+}
+.note .btn-inline svg{width:14px;height:14px}
+
+.ask{
+  margin:26px 18px 0;
+  background:var(--dark);color:var(--gold-soft);
+  border-radius:20px;padding:26px 22px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.ask::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 10%,rgba(192,138,45,.26),transparent 58%);
+  pointer-events:none;
+}
+.ask>*{position:relative;z-index:1}
+.ask b{
+  display:block;font-family:var(--font-display);font-style:italic;
+  font-size:1.22rem;font-weight:600;color:#F6EEDF;margin-bottom:8px;
+}
+.ask p{font-size:.87rem;color:rgba(233,217,184,.76);margin-bottom:18px}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 22px;border-radius:999px;
+  background:var(--wa);color:#fff;font-weight:700;font-size:.9rem;line-height:1;
+}
+.btn-wa svg{width:17px;height:17px;fill:currentColor}
+
+/* ---------- alt bilgi ---------- */
+.foot{
+  margin-top:34px;padding:28px 22px 34px;
+  border-top:1px solid var(--line);
+  background:var(--bg-soft);
+  text-align:center;
+}
+.foot-logo{max-width:190px;margin:0 auto 16px;mix-blend-mode:multiply}
+.foot p{font-size:.85rem;color:var(--ink-soft);margin-bottom:6px}
+.foot .quote{
+  font-family:var(--font-display);font-style:italic;
+  color:var(--brick);font-size:1rem;margin:16px 0 14px;
+}
+.foot .legal{font-size:.72rem;color:var(--muted);margin-top:16px}
+.foot a{color:var(--brick);font-weight:600}
+
+/* ---------- alt aksiyon çubuğu ---------- */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  max-width:var(--shell);margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  background:rgba(36,27,18,.97);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding-bottom:env(safe-area-inset-bottom);
+  border-top:1px solid rgba(233,217,184,.12);
+}
+.bar a{
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  padding:11px 6px 12px;
+  font-size:.68rem;font-weight:700;letter-spacing:.03em;
+  color:rgba(233,217,184,.8);
+  transition:color .18s;
+}
+.bar a:hover{color:var(--gold-soft)}
+.bar a svg{width:19px;height:19px}
+.bar a+a{border-left:1px solid rgba(233,217,184,.1)}
+.bar .is-wa{color:#8CE7AE}
+
+/* ---------- detay sayfası (bottom sheet) ---------- */
+.sheet{
+  position:fixed;inset:0;z-index:90;
+  display:flex;align-items:flex-end;justify-content:center;
+  visibility:hidden;
+}
+.sheet[data-open="true"]{visibility:visible}
+.sheet-veil{
+  position:absolute;inset:0;background:rgba(36,27,18,.55);
+  opacity:0;transition:opacity .28s ease;
+  backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+}
+.sheet[data-open="true"] .sheet-veil{opacity:1}
+.sheet-panel{
+  position:relative;width:100%;max-width:var(--shell);
+  max-height:88vh;overflow-y:auto;
+  background:var(--paper);
+  border-radius:24px 24px 0 0;
+  transform:translateY(101%);
+  transition:transform .32s cubic-bezier(.22,1,.36,1);
+  padding-bottom:calc(26px + env(safe-area-inset-bottom));
+}
+.sheet[data-open="true"] .sheet-panel{transform:translateY(0)}
+.sheet-photo{position:relative;aspect-ratio:16/10;background:var(--bg-soft)}
+.sheet-photo img{width:100%;height:100%;object-fit:cover}
+.sheet-close{
+  position:absolute;top:14px;right:14px;z-index:2;
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(36,27,18,.6);color:#F6EEDF;
+  display:grid;place-items:center;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.sheet-close svg{width:17px;height:17px}
+.sheet-grab{
+  position:absolute;top:9px;left:50%;transform:translateX(-50%);z-index:2;
+  width:42px;height:4px;border-radius:99px;background:rgba(246,238,223,.55);
+}
+.sheet-body{padding:22px 22px 4px}
+.sheet-body h3{
+  font-family:var(--font-display);font-size:1.55rem;font-weight:600;
+  line-height:1.2;letter-spacing:-.01em;
+}
+.sheet-price{
+  font-family:var(--font-display);font-size:1.25rem;font-weight:600;
+  color:var(--brick);margin-top:6px;
+}
+.sheet-body .badges{margin-top:14px}
+.sheet-body p{color:var(--ink-soft);font-size:.95rem;margin-top:16px}
+.sheet-hint{
+  margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);
+  font-size:.8rem;color:var(--muted);
+}
+
+@media(min-width:600px){
+  .sheet{align-items:center}
+  .sheet-panel{border-radius:22px;max-height:84vh;transform:translateY(24px) scale(.97);opacity:0;transition:transform .28s ease,opacity .28s ease}
+  .sheet[data-open="true"] .sheet-panel{transform:none;opacity:1}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .sheet-veil,.sheet-panel{transition:none}
+}
+body.is-locked{overflow:hidden}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ================= KAPAK ================= -->
+  <header class="cover">
+    <div class="cover-top">
+      <span class="since">Est. 1955</span>
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+
+    <span class="crest" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M8.6 3.4c0 1.1 1 1.3 1 2.4M12 3.4c0 1.1 1 1.3 1 2.4M15.4 3.4c0 1.1 1 1.3 1 2.4" stroke-width="1.5" stroke-linecap="round" opacity=".85"/>
+        <path d="M2.6 9.3h2m16.8 0h-2" stroke-width="1.8" stroke-linecap="round"/>
+        <rect x="4" y="8.2" width="16" height="2.4" rx="1.2" fill="currentColor" stroke="none"/>
+        <path d="M5 11.4h14v1.3c0 4-2.7 6.6-7 6.6s-7-2.6-7-6.6v-1.3Z" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+
+    <h1 data-i18n="title">Meşhur Kuru Fasulyeci<br><em>Hüseyin Amca'nın Yeri</em></h1>
+    <p class="tagline" data-i18n="tagline">Ortakent, Bodrum. Her sabah taze pişer; biten tencere bir daha kurulmaz.</p>
+
+    <div class="cover-meta">
+      <span class="chip-meta is-gold">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.1 6.6.9-4.8 4.7 1.2 6.6L12 17.2 6.1 20.3l1.2-6.6L2.5 9l6.6-.9L12 2Z"/></svg>
+        <span data-i18n="award">Restaurant Guru 2026</span>
+      </span>
+      <span class="meta-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+        <span data-i18n="hours">Her gün 09.00'da açılır</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- ================= KATEGORİ ŞERİDİ ================= -->
+  <nav class="tabs" aria-label="Menü kategorileri">
+    <div class="tabs-scroll" id="tabs"></div>
+  </nav>
+
+  <!-- ================= MENÜ ================= -->
+  <main id="menu"></main>
+
+  <!-- ================= ALT BİLGİ ================= -->
+  <footer class="foot">
+    <img class="foot-logo" src="img/logo.jpg" alt="Meşhur Kurufasulyeci Hüseyin Amca'nın Yeri" loading="lazy">
+    <p data-i18n="addr">Müskebi Mah. Cumhuriyet Cad. No:110<br>Ortakent — Belediye binası yanı · Bodrum / Muğla</p>
+    <p><a href="tel:+905076502833">+90 507 650 28 33</a> · <a href="tel:+902523582129">0252 358 21 29</a></p>
+    <p class="quote" data-i18n="quote">“El emeği, göz nuru.”</p>
+    <p><a href="index.html" data-i18n="siteLink">Lokantamızın hikâyesi →</a></p>
+    <p class="legal">© 2026 Meşhur Kuru Fasulyeci Hüseyin Amca'nın Yeri</p>
+  </footer>
+</div>
+
+<!-- ================= ALT AKSİYON ÇUBUĞU ================= -->
+<nav class="bar" aria-label="Hızlı işlemler">
+  <a class="is-wa" href="https://wa.me/905076502833?text=Merhaba%2C%20bug%C3%BCn%20tencerede%20ne%20var%3F" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .7-.1 1.2Z"/></svg>
+    <span data-i18n="barWa">WhatsApp</span>
+  </a>
+  <a href="tel:+902523582129">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+    <span data-i18n="barCall">Ara</span>
+  </a>
+  <a href="https://share.google/qxEepytfUtP2RpNf0" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span data-i18n="barMap">Yol Tarifi</span>
+  </a>
+</nav>
+
+<!-- ================= YEMEK DETAYI ================= -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" data-open="false">
+  <div class="sheet-veil" data-close></div>
+  <div class="sheet-panel">
+    <div class="sheet-photo">
+      <span class="sheet-grab" aria-hidden="true"></span>
+      <img id="sheetImg" src="" alt="">
+      <span id="sheetArt" aria-hidden="true"></span>
+      <button class="sheet-close" type="button" data-close aria-label="Kapat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body">
+      <h3 id="sheetTitle"></h3>
+      <div class="sheet-price" id="sheetPrice"></div>
+      <div class="badges" id="sheetBadges"></div>
+      <p id="sheetText"></p>
+      <p class="sheet-hint" id="sheetHint"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   MENÜ VERİSİ
+   ------------------------------------------------------------
+   Fiyat eklemek için ilgili yemeğin  p:null  alanını
+   p:"180 ₺"  şeklinde doldurmanız yeterli. Fiyat girilmeyen
+   yemeklerde fiyat alanı otomatik gizlenir.
+   Görseller başka bir yerde yayınlanacaksa IMG_BASE'i
+   "https://ks-deploy.vercel.app/img/" yapın.
+   ============================================================ */
+const IMG_BASE = "img/";
+
+const BADGE = {
+  star:{cls:"b-star", tr:"Meşhur",      en:"Signature"},
+  home:{cls:"b-home", tr:"Ev Yapımı",   en:"Homemade"},
+  oil: {cls:"",       tr:"Zeytinyağlı", en:"Olive Oil"},
+  veg: {cls:"b-veg",  tr:"Vejetaryen",  en:"Vegetarian"},
+  gift:{cls:"b-gift", tr:"İkramımız",   en:"On the House"}
+};
+
+const MENU = [
+  {
+    id:"klasikler",
+    tr:{t:"Klasikler",  s:"1955'ten beri değişmeyenler"},
+    en:{t:"The Classics", s:"Unchanged since 1955"},
+    items:[
+      {
+        img:"kuru-fasulye.jpg", big:"kazan-fasulye.jpg", bigSt:"object-position:50% 60%", p:null, b:["star"],
+        tr:{n:"Kuru Fasulye", d:"1955'ten beri aynı tarif. Kısık ateşte, sabırla pişer.",
+            l:"Lokantanın adını taşıyan yemek. Sabah kurulan kazanda kısık ateşte, acele ettirmeden pişer. Tarif dededen kalma; usta tencerenin kapağını açıp onaylamadan servise çıkmaz."},
+        en:{n:"Kuru Fasulye (White Bean Stew)", d:"The same recipe since 1955. Slow-cooked, never rushed.",
+            l:"The dish the restaurant is named after. Simmered gently in a pot set at dawn. The recipe comes from the founder himself, and no pot leaves the kitchen before the master has lifted the lid and approved it."}
+      },
+      {
+        img:"tas-kebabi.jpg", big:"tas-kebabi.jpg", st:"object-position:50% 58%", bigSt:"object-position:50% 58%", p:null, b:["star"],
+        tr:{n:"Tas Kebabı", d:"Ağır ateşte pişer; çatal değmeden dağılır.",
+            l:"Etin uzun uzun, kendi suyunda piştiği bir tencere yemeği. Yanında tereyağlı pirinç pilavıyla istenir."},
+        en:{n:"Tas Kebabı (Slow-Braised Beef)", d:"Braised low and slow until it falls apart.",
+            l:"Beef stewed for hours in its own juices. Best ordered with a plate of buttered rice alongside."}
+      },
+      {
+        img:"pilic.jpg", big:"pilic.jpg", st:"object-position:50% 58%", bigSt:"object-position:50% 58%", p:null, b:[],
+        tr:{n:"Mantarlı Piliç", d:"Ev usulü; ilk günden beri menüde.",
+            l:"Lokantanın açıldığı ilk günden beri tencerede olan yemeklerden. Mantarlı, ev usulü."},
+        en:{n:"Chicken with Mushrooms", d:"Home-style — on the menu since day one.",
+            l:"One of the dishes that has been in the pot since the restaurant opened in 1955. Home-style, cooked with mushrooms."}
+      },
+      {
+        img:"karisik-tabak.jpg", big:"karisik-tabak.jpg", p:null, b:[],
+        tr:{n:"Karışık Tabak", d:"İlk kez geldiyseniz: fasulye, pilav ve günün yemeğinden bir arada.",
+            l:"Karar veremeyenler için. Kuru fasulye, tereyağlı pilav ve günün tenceresinden bir tat aynı tabakta."},
+        en:{n:"Mixed Plate", d:"First time here? Beans, rice and the dish of the day on one plate.",
+            l:"For those who cannot decide. White bean stew, buttered rice and a taste of the day's pot, served together."}
+      }
+    ]
+  },
+  {
+    id:"gunun",
+    tr:{t:"Günün Tencereleri", s:"Her gün değişir — sabah ne pişerse"},
+    en:{t:"Today's Pots", s:"Changes daily — whatever is cooked that morning"},
+    items:[
+      {
+        img:"etli-patates.jpg", big:"etli-patates.jpg", p:null, b:[],
+        tr:{n:"Etli Patates", d:"Defne yapraklı, ağır ateşte pişmiş ev yemeği.",
+            l:"Et ve patatesin defne yaprağıyla birlikte ağır ateşte buluştuğu klasik bir ev yemeği."},
+        en:{n:"Beef & Potato Stew", d:"Home cooking with bay leaf, slow-simmered.",
+            l:"A classic home-style stew of beef and potatoes, simmered gently with bay leaf."}
+      },
+      {
+        img:"sulu-kofte.jpg", big:"sulu-kofte.jpg", st:"object-position:50% 62%", bigSt:"object-position:50% 62%", p:null, b:[],
+        tr:{n:"Sulu Köfte", d:"Köfte, patates ve havuç; öz suyunda.",
+            l:"Elde yuvarlanan köfteler, patates ve havuçla birlikte kendi suyunda pişer."},
+        en:{n:"Meatballs in Broth", d:"Meatballs with potato and carrot in their own broth.",
+            l:"Hand-rolled meatballs simmered with potato and carrot in a light broth."}
+      },
+      {
+        img:"patlican.jpg", big:"patlican.jpg", st:"object-position:50% 52%", bigSt:"object-position:50% 52%", p:null, b:[],
+        tr:{n:"Kıymalı Patlıcan", d:"Közlenmiş dokusuyla, ağır ateşte.",
+            l:"Patlıcan önce közlenir, sonra kıymayla birlikte ağır ateşte pişirilir."},
+        en:{n:"Aubergine with Minced Beef", d:"Charred first, then slow-cooked.",
+            l:"Aubergine is charred over flame, then cooked down slowly with minced beef."}
+      },
+      {
+        img:"taze-fasulye.jpg", big:"taze-fasulye.jpg", st:"object-position:50% 60%", bigSt:"object-position:50% 60%", p:null, b:["oil","veg"],
+        tr:{n:"Taze Fasulye", d:"Mevsiminde, domatesli ve hafif.",
+            l:"Zeytinyağlı, domatesli taze fasulye. Sadece mevsiminde tencereye girer."},
+        en:{n:"Green Beans in Olive Oil", d:"In season only — light, with tomato.",
+            l:"Green beans cooked in olive oil with tomato. Only ever on the menu in season."}
+      },
+      {
+        img:"kereviz.jpg", big:"kereviz.jpg", st:"object-position:50% 55%", bigSt:"object-position:50% 55%", p:null, b:["oil","veg"],
+        tr:{n:"Zeytinyağlı Kereviz", d:"Limonlu; havuç ve patatesle.",
+            l:"Kereviz, havuç ve patatesin zeytinyağı ve limonla pişirildiği hafif bir mevsim yemeği."},
+        en:{n:"Celeriac in Olive Oil", d:"With lemon, carrot and potato.",
+            l:"Celeriac, carrot and potato cooked gently in olive oil and lemon — light and seasonal."}
+      },
+      {
+        img:"eriste.jpg", big:"eriste.jpg", st:"object-position:50% 52%", bigSt:"object-position:50% 52%", p:null, b:["home"],
+        tr:{n:"Ev Eriştesi", d:"Tereyağlı, kıymalı.",
+            l:"Erişte burada, elde açılır. Tereyağı ve kıymayla servis edilir."},
+        en:{n:"Homemade Erişte (Noodles)", d:"With butter and minced beef.",
+            l:"The noodles are rolled and cut by hand here, then served with butter and minced beef."}
+      }
+    ]
+  },
+  {
+    id:"yaninda",
+    tr:{t:"Yanında", s:"Sofranın tamamlayıcıları"},
+    en:{t:"On the Side", s:"What completes the table"},
+    items:[
+      {
+        img:"sofra.jpg", big:"sofra.jpg", st:"transform:scale(2.6);transform-origin:100% 62%", p:null, b:["veg"],
+        tr:{n:"Tereyağlı Pirinç Pilavı", d:"Tane tane, tereyağlı.",
+            l:"Kuru fasulyenin ayrılmaz eşlikçisi. Tane tane pişer, tereyağıyla çekilir."},
+        en:{n:"Buttered Rice Pilaf", d:"Separate grains, finished with butter.",
+            l:"The inseparable companion of the bean stew. Cooked grain by grain and finished with butter."}
+      },
+      {
+        img:"biber-tursusu.jpg", big:"biber-tursusu.jpg", p:null, b:["home","veg"],
+        tr:{n:"Biber Turşusu", d:"Burada kurulur. İsteyen kavanozla eve de alır.",
+            l:"Turşularımızı kendimiz kuruyoruz. Misafirlerimizin en çok sorduğu şeylerden biri; isteyene kavanozla veriyoruz."},
+        en:{n:"Pickled Peppers", d:"Made in-house. Jars to take home on request.",
+            l:"We pickle our own vegetables. It is one of the things guests ask about most — you can take a jar home with you."}
+      },
+      {
+        img:"lahana.jpg", big:"lahana.jpg", st:"object-position:50% 58%", bigSt:"object-position:50% 58%", p:null, b:["home","veg"],
+        tr:{n:"Lahana Turşusu", d:"Biber turşusunun kardeşi; burada kurulur.",
+            l:"Aynı elden çıkan ikinci turşumuz. Fasulyenin yanında sevilir."},
+        en:{n:"Pickled Cabbage", d:"Sibling of the pepper pickle, made in the same kitchen.",
+            l:"Our second house pickle, from the same hands. A favourite alongside the beans."}
+      },
+      {
+        img:null, icon:"🥣", p:null, b:["veg"],
+        tr:{n:"Cacık", d:"Yoğurt, salatalık; serinletir.",
+            l:"Sıcak günlerde sofranın dengesi. Yoğurt ve salatalıkla, sade."},
+        en:{n:"Cacık (Yoghurt & Cucumber)", d:"Cooling, simple, made fresh.",
+            l:"What balances the table on a hot Bodrum afternoon: yoghurt and cucumber, nothing more."}
+      }
+    ]
+  },
+  {
+    id:"ikram",
+    tr:{t:"İkramımız", s:"Yemekten sonra, bizden"},
+    en:{t:"On the House", s:"After your meal, from us"},
+    items:[
+      {
+        img:"helva.jpg", big:"helva.jpg", st:"object-position:50% 40%", bigSt:"object-position:50% 40%", p:"İkram", free:true, b:["gift","veg"],
+        tr:{n:"İrmik Helvası", d:"Yemekten sonra ikramımızdır.",
+            l:"Sofradan kalkmadan önce, kavrulmuş irmik helvası. Hesaba yazılmaz."},
+        en:{n:"Semolina Halva", d:"Served after your meal, on the house.",
+            l:"Roasted semolina halva before you leave the table. It never appears on the bill."}
+      },
+      {
+        img:null, icon:"🫖", p:"İkram", free:true, b:["gift","veg"],
+        tr:{n:"Çay", d:"Helvanın yanında, o da bizden.",
+            l:"Helvanın yanında bir bardak çay. Buyrun, acele etmeyin."},
+        en:{n:"Turkish Tea", d:"Alongside the halva — also on us.",
+            l:"A glass of tea with your halva. Please, take your time."}
+      }
+    ]
+  }
+];
+
+/* ---------- arayüz metinleri ---------- */
+const I18N = {
+  tr:{
+    title:"Meşhur Kuru Fasulyeci<br><em>Hüseyin Amca'nın Yeri</em>",
+    tagline:"Ortakent, Bodrum · Her sabah taze pişer; biten tencere bir daha kurulmaz.",
+    award:"Restaurant Guru 2026",
+    hours:"Her gün 09.00'da açılır",
+    addr:"Müskebi Mah. Cumhuriyet Cad. No:110<br>Ortakent — Belediye binası yanı · Bodrum / Muğla",
+    quote:"“El emeği, göz nuru.”",
+    siteLink:"Lokantamızın hikâyesi →",
+    barWa:"WhatsApp", barCall:"Ara", barMap:"Yol Tarifi",
+    noteT:"İlk kez mi geldiniz?",
+    noteD:"Bir tabak kuru fasulye, yanında tereyağlı pilav ve ev turşusu. Yetmiş yıldır en çok istenen üçlü bu.",
+    askT:"Bugün tencerede ne var?",
+    askD:"Günün yemekleri her sabah değişir. Paket servis ve rezervasyon için de yazabilirsiniz.",
+    askBtn:"WhatsApp'tan sorun",
+    hint:"Yemekler öğlen saatlerinde en tazedir. Biten tencere o gün bir daha kurulmaz.",
+    noPrice:"Güncel fiyatlar için servis ekibimize danışabilirsiniz."
+  },
+  en:{
+    title:"Meşhur Kuru Fasulyeci<br><em>Hüseyin Amca'nın Yeri</em>",
+    tagline:"Ortakent, Bodrum · Cooked fresh each morning — when a pot is finished, it is finished.",
+    award:"Restaurant Guru 2026",
+    hours:"Open daily from 09.00",
+    addr:"Müskebi Mah. Cumhuriyet Cad. No:110<br>Ortakent — next to the town hall · Bodrum / Muğla",
+    quote:"“Made by hand, with care.”",
+    siteLink:"Our story →",
+    barWa:"WhatsApp", barCall:"Call", barMap:"Directions",
+    noteT:"First time here?",
+    noteD:"A plate of white bean stew, buttered rice and house pickles. The same three things guests have ordered for seventy years.",
+    askT:"What is in the pot today?",
+    askD:"The daily dishes change every morning. Message us for takeaway or to reserve a table.",
+    askBtn:"Ask on WhatsApp",
+    hint:"Dishes are freshest around midday. Once a pot runs out, it is not made again that day.",
+    noPrice:"Please ask our team for today's prices."
+  }
+};
+
+const WA = "https://wa.me/905076502833?text=Merhaba%2C%20bug%C3%BCn%20tencerede%20ne%20var%3F";
+
+let lang = (localStorage.getItem("ha-lang") === "en") ? "en" : "tr";
+const hasPrices = MENU.some(s => s.items.some(i => i.p && !i.free));
+
+const el  = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function badgeHTML(keys){
+  if(!keys || !keys.length) return "";
+  return `<div class="badges">${keys.map(k=>{
+    const b = BADGE[k]; if(!b) return "";
+    return `<span class="badge ${b.cls}">${esc(b[lang])}</span>`;
+  }).join("")}</div>`;
+}
+
+function render(){
+  const t = I18N[lang];
+  document.documentElement.lang = lang;
+
+  /* sabit metinler */
+  document.querySelectorAll("[data-i18n]").forEach(n=>{ n.innerHTML = t[n.dataset.i18n]; });
+  document.querySelectorAll(".lang button").forEach(b=>{
+    b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+  });
+
+  /* kategori şeridi */
+  el("#tabs").innerHTML = MENU.map((s,i)=>
+    `<button class="tab" type="button" data-go="${s.id}" aria-current="${i===0}">${esc(s[lang].t)}</button>`
+  ).join("");
+
+  /* bölümler */
+  let html = "";
+  MENU.forEach((s, si) => {
+    html += `<section class="sec" id="${s.id}" aria-label="${esc(s[lang].t)}">
+      <div class="sec-head"><h2>${esc(s[lang].t)}</h2><span class="rule"></span></div>
+      <p class="sec-sub">${esc(s[lang].s)}</p>
+      <div class="items">`;
+
+    s.items.forEach((it, ii) => {
+      const price = it.p
+        ? `<span class="price${it.free ? " is-free" : ""}">${esc(lang==="en" && it.free ? "On the house" : it.p)}</span>`
+        : "";
+      const thumb = it.img
+        ? `<span class="item-thumb"><img src="${IMG_BASE}${it.img}" alt="" loading="lazy"${it.st ? ` style="${it.st}"` : ""}></span>`
+        : `<span class="item-thumb is-art" aria-hidden="true">${it.icon || "🍽️"}</span>`;
+      html += `<button class="item" type="button" data-s="${si}" data-i="${ii}">
+        ${thumb}
+        <span class="item-main">
+          <span class="item-title"><span class="item-name">${esc(it[lang].n)}</span>${price}</span>
+          <span class="item-desc">${esc(it[lang].d)}</span>
+          ${badgeHTML(it.b)}
+        </span>
+      </button>`;
+    });
+
+    html += `</div>`;
+
+    /* araya giren kartlar */
+    if(si === 0){
+      html += `<div class="note">
+        <b>${esc(t.noteT)}</b>
+        <p>${esc(t.noteD)}</p>
+      </div>`;
+    }
+    if(si === 1){
+      html += `<div class="ask">
+        <b>${esc(t.askT)}</b>
+        <p>${esc(t.askD)}</p>
+        <a class="btn-wa" href="${WA}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .7-.1 1.2Z"/></svg>
+          ${esc(t.askBtn)}
+        </a>
+      </div>`;
+    }
+    html += `</section>`;
+  });
+
+  /* fiyat girilmemişse tek bir dürüst satır */
+  html += `<p class="sec" style="padding-top:22px;color:var(--muted);font-size:.8rem;text-align:center">
+    ${esc(hasPrices ? t.hint : t.noPrice + " " + t.hint)}
+  </p>`;
+
+  el("#menu").innerHTML = html;
+  bindItems();
+  spy();
+  syncActive();
+}
+
+/* o an ekranda olan bölümü şeritte işaretle (dil değişiminde de doğru kalsın) */
+function syncActive(){
+  let active = MENU[0].id;
+  MENU.forEach(s=>{
+    const n = document.getElementById(s.id);
+    if(n && n.getBoundingClientRect().top <= 70) active = s.id;
+  });
+  markTab(active, "auto");
+}
+
+function markTab(id, behavior){
+  document.querySelectorAll(".tab").forEach(tab=>{
+    const on = tab.dataset.go === id;
+    tab.setAttribute("aria-current", String(on));
+    if(on) tab.scrollIntoView({behavior:behavior||"smooth", inline:"center", block:"nearest"});
+  });
+}
+
+/* ---------- yemek detayı ---------- */
+const sheet = el("#sheet");
+let lastFocus = null;
+
+function openSheet(si, ii){
+  const it = MENU[si].items[ii];
+  lastFocus = document.activeElement;
+  const photo = el(".sheet-photo");
+  if(it.img){
+    photo.classList.remove("is-art");
+    el("#sheetArt").textContent = "";
+    el("#sheetImg").hidden = false;
+    el("#sheetImg").src = IMG_BASE + (it.big || it.img);
+    el("#sheetImg").alt = it[lang].n;
+    el("#sheetImg").style.cssText = it.bigSt || "";
+  }else{
+    photo.classList.add("is-art");
+    el("#sheetImg").hidden = true;
+    el("#sheetImg").removeAttribute("src");
+    el("#sheetArt").textContent = it.icon || "🍽️";
+  }
+  el("#sheetTitle").textContent = it[lang].n;
+  el("#sheetPrice").textContent = it.p ? (lang==="en" && it.free ? "On the house" : it.p) : "";
+  el("#sheetBadges").innerHTML = badgeHTML(it.b).replace(/^<div class="badges">|<\/div>$/g,"");
+  el("#sheetText").textContent = it[lang].l;
+  el("#sheetHint").textContent = I18N[lang].hint;
+  sheet.dataset.open = "true";
+  document.body.classList.add("is-locked");
+  el(".sheet-close").focus();
+}
+
+function closeSheet(){
+  sheet.dataset.open = "false";
+  document.body.classList.remove("is-locked");
+  if(lastFocus) lastFocus.focus();
+}
+
+function bindItems(){
+  document.querySelectorAll(".item").forEach(b=>{
+    b.addEventListener("click", ()=> openSheet(+b.dataset.s, +b.dataset.i));
+  });
+  document.querySelectorAll(".tab").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      const target = document.getElementById(b.dataset.go);
+      if(target) target.scrollIntoView({behavior:"smooth", block:"start"});
+    });
+  });
+}
+
+sheet.addEventListener("click", e=>{ if(e.target.closest("[data-close]")) closeSheet(); });
+document.addEventListener("keydown", e=>{
+  if(e.key === "Escape" && sheet.dataset.open === "true") closeSheet();
+});
+
+/* ---------- kategori takibi (scroll-spy) ---------- */
+let observer = null;
+function spy(){
+  if(observer) observer.disconnect();
+  observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) markTab(e.target.id); });
+  }, {rootMargin:"-56px 0px -70% 0px", threshold:0});
+  MENU.forEach(s=>{
+    const n = document.getElementById(s.id);
+    if(n) observer.observe(n);
+  });
+}
+
+/* ---------- dil ---------- */
+document.querySelectorAll(".lang button").forEach(b=>{
+  b.addEventListener("click", ()=>{
+    /* dil değişince okunan bölümde kal, başa dönme */
+    const keep = document.querySelector('.tab[aria-current="true"]');
+    const keepId = keep && keep.dataset.go;
+    const wasScrolled = window.scrollY > 0;
+
+    lang = b.dataset.lang;
+    localStorage.setItem("ha-lang", lang);
+    render();
+
+    if(wasScrolled && keepId){
+      const n = document.getElementById(keepId);
+      if(n){
+        n.scrollIntoView({behavior:"auto", block:"start"});
+        /* yeni IntersectionObserver'ın ilk bildirimi geçtikten sonra işaretle */
+        setTimeout(syncActive, 80);
+      }
+    }
+  });
+});
+
+render();
+</script>
+</body>
+</html>
