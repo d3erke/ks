@@ -71,7 +71,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 /* ---------- kapak ---------- */
 .cover{
   position:relative;background:var(--navy);color:var(--gold-soft);
-  padding:14px 20px 70px;overflow:hidden;text-align:center;
+  padding:14px 20px 74px;overflow:hidden;text-align:center;
 }
 .cover::before{
   content:"";position:absolute;inset:0;
@@ -92,17 +92,18 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   color:rgba(231,211,168,.7);transition:background .18s,color .18s;white-space:nowrap;
 }
 .seg button[aria-pressed="true"]{background:var(--gold-soft);color:var(--navy)}
-.logo-amca{width:min(132px,34vw);height:auto;margin:0 auto 14px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+/* logo kendi doğal boyutunda (260px) durur; dar telefonda taşmaması için vw tavanı var */
+.logo-amca{width:min(260px,66vw);height:auto;margin:2px auto 6px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.38))}
 .cover h1{
   font-family:var(--font-display);
-  font-size:clamp(1.35rem,5.6vw,1.7rem);
+  font-size:clamp(1.5rem,6.2vw,1.95rem);
   font-weight:600;line-height:1.2;letter-spacing:.005em;color:#F7EEDC;
   text-wrap:balance;
 }
 .cover h1 em{display:block;font-style:italic;color:var(--gold-lite);font-size:1.12em;margin-top:2px}
-.cover .tagline{margin-top:10px;font-size:.85rem;color:rgba(231,211,168,.7);max-width:26rem;margin-inline:auto}
+.cover .tagline{margin-top:12px;font-size:.85rem;color:rgba(231,211,168,.7);max-width:26rem;margin-inline:auto}
 .cover .est{
-  margin-top:14px;display:inline-flex;align-items:center;gap:10px;
+  margin-top:16px;display:inline-flex;align-items:center;gap:10px;
   font-size:.63rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
   color:rgba(231,211,168,.5);
 }
@@ -283,7 +284,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 /* ---------- alt bilgi ---------- */
 .foot{margin-top:30px;padding:26px 20px 32px;border-top:1px solid var(--line);background:var(--cream-2);text-align:center}
-.foot-logo{width:104px;margin:0 auto 14px;opacity:.95}
+.foot-logo{width:min(180px,46vw);margin:0 auto 16px;opacity:.95}
 .foot p{font-size:.83rem;color:var(--ink-soft);margin-bottom:5px}
 .foot .quote{font-family:var(--font-display);font-style:italic;color:var(--navy);font-size:.98rem;margin:14px 0 12px}
 .foot .legal{font-size:.7rem;color:var(--muted);margin-top:14px}
