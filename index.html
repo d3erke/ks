@@ -73,7 +73,7 @@ body{
 img{max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-main section,footer{scroll-margin-top:84px}
+main section,footer{scroll-margin-top:100px}
 .hero .wrap{max-width:none;padding:0 10%}
 
 /* ---------- reveal on scroll (opacity only, cheap) ---------- */
@@ -91,9 +91,9 @@ header{
   background:rgba(251,246,236,.97);
   border-bottom:1px solid var(--line);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:88px}
 .brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:1.05rem;letter-spacing:.01em}
-.brand-mark{width:46px;height:46px;flex-shrink:0}
+.brand-mark{width:64px;height:64px;flex-shrink:0}
 .brand-mark img{width:100%;height:auto;display:block}
 .brand small{display:block;font-family:var(--font-body);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .nav-links{display:flex;gap:30px;font-weight:600;font-size:.92rem}
@@ -142,7 +142,7 @@ header{
   position:relative;
   background:var(--dark);
   border-radius:28px;
-  padding:60px 48px 50px;
+  padding:30px 30px 26px;
   width:min(520px,100%);
   box-shadow:0 24px 60px rgba(46,36,24,.24);
 }
@@ -151,7 +151,11 @@ header{
   background:radial-gradient(circle at 75% 12%,rgba(192,138,45,.28),transparent 55%);
   pointer-events:none;
 }
-.pot-svg{width:100%;height:auto;display:block;position:relative;z-index:1}
+.pot-photo{
+  width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 52%;
+  display:block;position:relative;z-index:1;
+  border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
 .pot-caption{
   position:relative;z-index:1;text-align:center;margin-top:26px;
   color:var(--gold-soft);font-family:var(--font-display);font-style:italic;font-size:1.05rem;
@@ -160,18 +164,6 @@ header{
   position:absolute;top:-26px;right:-16px;z-index:2;
   width:124px;height:auto;
   filter:drop-shadow(0 8px 18px rgba(0,0,0,.45));
-}
-.steam path{fill:none;stroke-linecap:round;opacity:0;animation:steam 5.5s ease-in-out infinite}
-.steam path:nth-child(2){animation-delay:1.8s}
-.steam path:nth-child(3){animation-delay:3.6s}
-@keyframes steam{
-  0%{transform:translateY(8px);opacity:0}
-  30%{opacity:.55}
-  70%{opacity:.3}
-  100%{transform:translateY(-16px);opacity:0}
-}
-@media (prefers-reduced-motion:reduce){
-  .steam path{animation:none;opacity:.35;transform:none}
 }
 
 /* ---------- section base ---------- */
@@ -406,7 +398,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
   .foot-grid{grid-template-columns:1fr 1fr}
   .hero{padding:52px 0 68px}
   .hero-art{order:-1}
-  .pot-card{width:min(380px,100%);padding:48px 38px 40px}
+  .pot-card{width:min(380px,100%);padding:26px 26px 22px}
   .stamp{width:104px;height:auto;top:-18px;right:-6px}
   .about-photo{aspect-ratio:16/11}
   .visit-photo{aspect-ratio:16/10}
@@ -416,16 +408,20 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
 @media(max-width:620px){
   .nav-links{display:none}
   .hero .wrap{padding:0 14px}
-  .pot-card{width:100%;padding:44px 26px 36px}
+  .pot-card{width:100%;padding:22px 22px 20px}
   .menu-feature,.menu-feature.menu-day,.press-cards,.foot-grid,.gallery{grid-template-columns:1fr}
   .hero-facts{flex-wrap:wrap}
   .fact{border-right:none;padding-right:0;margin-right:22px}
   .press{border-radius:0}
 }
 @media(max-width:430px){
-  .brand small{letter-spacing:.12em}
-  .nav{gap:10px}
-  .nav .btn{padding:10px 14px}
+  /* dar ekranda seride sigmasi icin: alt satir gizlenir, isim tek satirda kalir */
+  .nav{gap:8px;height:74px}
+  .brand-mark{width:52px;height:52px}
+  .brand{gap:9px;font-size:.9rem}
+  .brand>span{white-space:nowrap}
+  .brand small{display:none}
+  .nav .btn{padding:10px 13px;font-size:.8rem}
   .hero h1{font-size:2.25rem}
   .quote-card{padding:36px 26px}
   .visit-card{padding:30px 24px}
@@ -482,40 +478,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
       <div class="hero-art">
         <div class="pot-card">
           <img class="stamp" src="img/logo-amca.png" alt="" width="216" height="232" loading="lazy">
-          <svg class="pot-svg" viewBox="0 0 300 240" aria-hidden="true">
-            <defs>
-              <linearGradient id="steamGrad" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0" stop-color="#E9D9B8" stop-opacity=".75"/>
-                <stop offset=".7" stop-color="#E9D9B8" stop-opacity=".3"/>
-                <stop offset="1" stop-color="#E9D9B8" stop-opacity="0"/>
-              </linearGradient>
-              <filter id="steamSoft" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="1.6"/>
-              </filter>
-            </defs>
-            <g class="steam" stroke="url(#steamGrad)" filter="url(#steamSoft)">
-              <path stroke-width="5.5" d="M118 88 C108 76, 128 68, 120 54 C112 40, 130 34, 124 20"/>
-              <path stroke-width="6.5" d="M150 84 C140 70, 162 62, 152 46 C144 32, 162 26, 156 10"/>
-              <path stroke-width="5" d="M182 88 C174 76, 192 68, 184 54 C176 42, 192 36, 186 22"/>
-            </g>
-            <g transform="translate(150 160) scale(1.13) translate(-150 -160)">
-              <ellipse cx="150" cy="196" rx="98" ry="14" fill="#1B140D"/>
-              <path d="M58 108h184v8c0 46-30 78-92 78s-92-32-92-78v-8Z" fill="#A93B26"/>
-              <path d="M58 108h184v8c0 10-2 19-5 28H63c-3-9-5-18-5-28v-8Z" fill="#B84A32"/>
-              <rect x="50" y="98" width="200" height="14" rx="7" fill="#7E2B1B"/>
-              <path d="M34 105c-8 0-8 14 0 14h18v-14H34Zm232 0c8 0 8 14 0 14h-18v-14h18Z" fill="#7E2B1B"/>
-              <g fill="#E9D9B8">
-                <ellipse cx="105" cy="99" rx="13" ry="8" transform="rotate(-14 105 99)"/>
-                <ellipse cx="138" cy="95" rx="13" ry="8" transform="rotate(9 138 95)"/>
-                <ellipse cx="171" cy="98" rx="13" ry="8" transform="rotate(-7 171 98)"/>
-                <ellipse cx="200" cy="100" rx="12" ry="7" transform="rotate(12 200 100)"/>
-              </g>
-              <g fill="#D9BF92">
-                <ellipse cx="121" cy="102" rx="12" ry="7" transform="rotate(20 121 102)"/>
-                <ellipse cx="187" cy="103" rx="11" ry="7" transform="rotate(-18 187 103)"/>
-              </g>
-            </g>
-          </svg>
+          <img class="pot-photo" src="img/kuru-fasulye-hero.jpg" alt="Bir tabak kuru fasulye" width="1100" height="1100" fetchpriority="high">
           <p class="pot-caption">"Kazan kaynar, mahalle doyar."</p>
         </div>
       </div>
