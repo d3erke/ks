@@ -9,8 +9,8 @@
 <meta property="og:title" content="Menü — Meşhur Kurufasülyeci Hüseyin Amca">
 <meta property="og:description" content="1955'ten beri Ortakent'te. Her güne ayrı tencere.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://ks-deploy.vercel.app/img/kazan-fasulye.jpg">
-<link rel="canonical" href="https://ks-deploy.vercel.app/menu.html">
+<meta property="og:image" content="https://ks-deploy-inky.vercel.app/img/kazan-fasulye.jpg">
+<link rel="canonical" href="https://ks-deploy-inky.vercel.app/menu.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫘</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +23,7 @@
   --navy-deep:#0F1C2E;
   --navy-2:#1E3350;
   --gold:#C8983F;
+  --gold-deep:#8A6317;
   --gold-lite:#DFBE72;
   --gold-soft:#E7D3A8;
   --cream:#FBF6EC;
@@ -70,7 +71,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 /* ---------- kapak ---------- */
 .cover{
   position:relative;background:var(--navy);color:var(--gold-soft);
-  padding:14px 20px 70px;overflow:hidden;text-align:center;
+  padding:14px 20px 74px;overflow:hidden;text-align:center;
 }
 .cover::before{
   content:"";position:absolute;inset:0;
@@ -91,17 +92,18 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   color:rgba(231,211,168,.7);transition:background .18s,color .18s;white-space:nowrap;
 }
 .seg button[aria-pressed="true"]{background:var(--gold-soft);color:var(--navy)}
-.logo-amca{width:84px;height:auto;margin:0 auto 10px}
+/* tuval amblemin çevresinde eşit boşluk bırakacak şekilde kırpıldı; 216px doğal boyut */
+.logo-amca{display:block;width:min(216px,58vw);height:auto;margin:2px auto 6px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.38))}
 .cover h1{
   font-family:var(--font-display);
-  font-size:clamp(1.35rem,5.6vw,1.7rem);
+  font-size:clamp(1.5rem,6.2vw,1.95rem);
   font-weight:600;line-height:1.2;letter-spacing:.005em;color:#F7EEDC;
   text-wrap:balance;
 }
 .cover h1 em{display:block;font-style:italic;color:var(--gold-lite);font-size:1.12em;margin-top:2px}
-.cover .tagline{margin-top:10px;font-size:.85rem;color:rgba(231,211,168,.7);max-width:26rem;margin-inline:auto}
+.cover .tagline{margin-top:12px;font-size:.85rem;color:rgba(231,211,168,.7);max-width:26rem;margin-inline:auto}
 .cover .est{
-  margin-top:14px;display:inline-flex;align-items:center;gap:10px;
+  margin-top:16px;display:inline-flex;align-items:center;gap:10px;
   font-size:.63rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
   color:rgba(231,211,168,.5);
 }
@@ -127,29 +129,40 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 }
 .today-head strong{font-family:var(--font-display);font-size:1.16rem;font-weight:600;color:#F7EEDC}
 .today-head .date{font-size:.72rem;color:rgba(231,211,168,.6);text-align:right;line-height:1.35;flex-shrink:0}
+.today-head .date em{
+  display:block;margin-top:4px;font-style:normal;
+  font-size:.58rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--navy);background:var(--gold-lite);
+  border-radius:999px;padding:3px 9px;
+}
 
 /* gün rayı */
 .days{display:flex;gap:5px;padding:11px 12px;border-bottom:1px solid var(--line-soft)}
 .day{
-  flex:1 1 0;min-width:0;padding:8px 2px 7px;border-radius:11px;
+  flex:1 1 0;min-width:0;padding:10px 2px;border-radius:11px;
   border:1px solid var(--line);background:var(--cream);
-  text-align:center;transition:background .16s,color .16s,border-color .16s;
+  text-align:center;transition:background .16s,color .16s,border-color .16s,box-shadow .16s;
 }
 .day span{display:block;font-size:.63rem;font-weight:800;letter-spacing:.02em;color:var(--muted);text-transform:uppercase}
-.day i{display:block;font-style:normal;font-size:.6rem;font-weight:700;color:var(--muted);opacity:.75;margin-top:2px}
 .day[aria-pressed="true"]{background:var(--navy);border-color:var(--navy)}
 .day[aria-pressed="true"] span{color:var(--gold-lite)}
-.day[aria-pressed="true"] i{color:rgba(231,211,168,.65)}
-.day.is-today:not([aria-pressed="true"]){border-color:var(--gold);background:rgba(200,152,63,.09)}
+/* bugün: renkle belli olur — seçili değilken altın zemin, seçiliyken altın halka */
+.day.is-today:not([aria-pressed="true"]){border-color:var(--gold);background:rgba(200,152,63,.16)}
+.day.is-today:not([aria-pressed="true"]) span{color:var(--gold-deep)}
+.day.is-today[aria-pressed="true"]{box-shadow:0 0 0 2px var(--gold)}
 
 .today-body{padding:14px 14px 4px}
 .today-lead{
   font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
   color:var(--gold);margin-bottom:10px;
 }
-.today-empty{
-  color:var(--ink-soft);font-size:.88rem;
-  background:var(--cream);border:1px dashed var(--line);border-radius:13px;padding:14px 16px;
+.today-note{
+  margin-top:10px;color:var(--ink-soft);font-size:.8rem;line-height:1.5;
+  padding-left:11px;border-left:2px solid rgba(200,152,63,.45);
+}
+.today-hours{
+  margin:14px 0 2px;padding:11px 0 0;border-top:1px solid var(--line-soft);
+  font-size:.76rem;font-weight:600;color:var(--muted);text-align:center;
 }
 .ikram-line{
   margin:12px 0 4px;padding:12px 14px;border-radius:13px;
@@ -271,7 +284,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 /* ---------- alt bilgi ---------- */
 .foot{margin-top:30px;padding:26px 20px 32px;border-top:1px solid var(--line);background:var(--cream-2);text-align:center}
-.foot-logo{width:74px;margin:0 auto 14px;opacity:.95}
+.foot-logo{display:block;width:min(150px,38vw);margin:0 auto 16px;opacity:.95}
 .foot p{font-size:.83rem;color:var(--ink-soft);margin-bottom:5px}
 .foot .quote{font-family:var(--font-display);font-style:italic;color:var(--navy);font-size:.98rem;margin:14px 0 12px}
 .foot .legal{font-size:.7rem;color:var(--muted);margin-top:14px}
@@ -350,7 +363,7 @@ body.is-locked{overflow:hidden}
       </div>
     </div>
 
-    <img class="logo-amca" src="img/logo-amca.png" alt="Meşhur Kurufasülyeci Hüseyin Amca" width="96" height="89">
+    <img class="logo-amca" src="img/logo-amca.png" alt="Meşhur Kurufasülyeci Hüseyin Amca" width="216" height="232">
     <h1 data-i18n="title">Meşhur Kurufasülyeci<em>Hüseyin Amca</em></h1>
     <p class="tagline" data-i18n="tagline">Her sabah taze pişer; biten tencere o gün bir daha kurulmaz.</p>
     <span class="est" data-i18n="est">Since 1955 · Ortakent, Bodrum</span>
@@ -360,7 +373,7 @@ body.is-locked{overflow:hidden}
   <section class="today" id="bugun" aria-label="Günün menüsü">
     <div class="today-head">
       <div>
-        <b data-i18n="todayKicker">Tencerede ne var?</b>
+        <b id="dayKicker">Bugün tencerede ne var?</b>
         <strong id="dayName">—</strong>
       </div>
       <div class="date" id="dayDate"></div>
@@ -671,11 +684,15 @@ const I18N = {
     title:"Meşhur Kurufasülyeci<em>Hüseyin Amca</em>",
     tagline:"Her sabah taze pişer; biten tencere o gün bir daha kurulmaz.",
     est:"Since 1955 · Ortakent, Bodrum",
-    todayKicker:"Tencerede ne var?",
+    todayKicker:"Bugün tencerede ne var?",
+    otherKicker:"O gün tencerede ne var?",
+    todayTag:"Bugün",
     todaySpecials:"Bu güne özel",
-    todayNone:"Bu gün için sabit bir program yok — her gün pişen yemeklerimiz masada. Günün tencerelerini servis ekibimize sorabilir ya da WhatsApp'tan yazabilirsiniz.",
+    todayNone:"Bu güne özel sabit bir program yok; günün ek tencerelerini servis ekibimize sorabilir ya da WhatsApp'tan yazabilirsiniz.",
     alwaysT:"Her gün tencerede",
     ikramT:"Bugünün ikramı",
+    ikramOther:"O günün ikramı",
+    hours:"Sabah 09.00'da açılır; yemekler bitince kapanır.",
     calKicker:"Bizden",
     calTitle:"İkram takvimi",
     calSut:"Salı & Çarşamba", calSutV:"Sütlaç", calSutS:"Yemekten sonra ikramımızdır.",
@@ -696,11 +713,15 @@ const I18N = {
     title:"Meşhur Kurufasülyeci<em>Hüseyin Amca</em>",
     tagline:"Cooked fresh each morning — when a pot runs out, that is it for the day.",
     est:"Since 1955 · Ortakent, Bodrum",
-    todayKicker:"What is in the pot?",
+    todayKicker:"What is in the pot today?",
+    otherKicker:"What is in the pot that day?",
+    todayTag:"Today",
     todaySpecials:"Today only",
-    todayNone:"No fixed programme for this day — our everyday dishes are on the table. Ask our team what is in the pot, or message us on WhatsApp.",
+    todayNone:"No fixed programme for this day; ask our team what else is in the pot, or message us on WhatsApp.",
     alwaysT:"In the pot every day",
     ikramT:"Today, on the house",
+    ikramOther:"That day, on the house",
+    hours:"Opens at 9 a.m.; closes when the pots are empty.",
     calKicker:"From us",
     calTitle:"What we serve on the house",
     calSut:"Tue & Wed", calSutV:"Rice pudding", calSutS:"Served after your meal.",
@@ -761,6 +782,14 @@ function itemHTML(id, extraBadges){
 }
 
 /* ---------- BUGÜN paneli ---------- */
+/* seçilen günün tarihi: bugünse bugün, değilse o günün bir sonraki gelişi */
+function dayDateOf(d){
+  const t = I18N[lang];
+  const ahead = (d - now.getDay() + 7) % 7;
+  const dt = new Date(now.getFullYear(), now.getMonth(), now.getDate() + ahead);
+  return `${dt.getDate()} ${t.months[dt.getMonth()]}`;
+}
+
 function dayIkramId(day){
   if(!day.ikram) return null;
   return typeof day.ikram === "string" ? day.ikram : day.ikram[season];
@@ -770,14 +799,16 @@ function renderToday(){
   const t   = I18N[lang];
   const day = DAYS.find(x => x.d === pickedDay) || DAYS[0];
 
+  const isToday = pickedDay === now.getDay();
+
+  el("#dayKicker").textContent = isToday ? t.todayKicker : t.otherKicker;
   el("#dayName").textContent = day[lang];
-  el("#dayDate").innerHTML = (pickedDay === now.getDay())
-    ? `${now.getDate()} ${t.months[now.getMonth()]}`
-    : "";
+  el("#dayDate").innerHTML = `${dayDateOf(day.d)}${isToday ? `<em>${esc(t.todayTag)}</em>` : ""}`;
 
   el("#dayRail").innerHTML = DAYS.map(x =>
-    `<button class="day${x.d === now.getDay() ? " is-today" : ""}" type="button" data-day="${x.d}" aria-pressed="${x.d === pickedDay}">
-       <span>${esc(x.s[lang])}</span>${x.d === now.getDay() ? `<i>•</i>` : `<i>&nbsp;</i>`}
+    `<button class="day${x.d === now.getDay() ? " is-today" : ""}" type="button" data-day="${x.d}"
+             aria-pressed="${x.d === pickedDay}"${x.d === now.getDay() ? ` aria-label="${esc(x[lang])} — ${esc(t.todayTag)}"` : ""}>
+       <span>${esc(x.s[lang])}</span>
      </button>`).join("");
 
   let html = "";
@@ -785,7 +816,10 @@ function renderToday(){
     html += `<p class="today-lead">${esc(t.todaySpecials)}</p>
              <div class="items">${day.items.map(id => itemHTML(id, ["today"])).join("")}</div>`;
   }else{
-    html += `<p class="today-empty">${esc(t.todayNone)}</p>`;
+    /* sabit programı olmayan gün: her gün pişenler boş bir kutu yerine asıl içerik olur */
+    html += `<p class="today-lead">${esc(t.alwaysT)}</p>
+             <div class="items">${ALWAYS.map(id => itemHTML(id)).join("")}</div>
+             <p class="today-note">${esc(t.todayNone)}</p>`;
   }
 
   const ik = dayIkramId(day);
@@ -796,19 +830,24 @@ function renderToday(){
       : `<span class="ico" aria-hidden="true">${it.icon || "🍽️"}</span>`;
     html += `<div class="ikram-line">
       ${face}
-      <div><b>${esc(t.ikramT)}</b><p>${esc(it[lang].n)}<small>${esc(it[lang].d)}</small></p></div>
+      <div><b>${esc(isToday ? t.ikramT : t.ikramOther)}</b><p>${esc(it[lang].n)}<small>${esc(it[lang].d)}</small></p></div>
     </div>`;
   }
 
-  html += `<div class="always"><b>${esc(t.alwaysT)}</b><div class="always-row">${
-    ALWAYS.map(id=>{
-      const it = ITEMS[id];
-      const ic = it.img
-        ? `<span class="pill-ico"><img src="${IMG_BASE}${it.img}" alt=""${it.st ? ` style="${it.st}"` : ""} loading="lazy"></span>`
-        : `<em aria-hidden="true">${it.icon || "•"}</em>`;
-      return `<button class="pill" type="button" data-id="${id}">${ic}${esc(it[lang].n)}</button>`;
-    }).join("")
-  }</div></div>`;
+  /* boş günde bu dördü zaten yukarıda kart olarak duruyor — ikinci kez göstermeyelim */
+  if(day.items.length){
+    html += `<div class="always"><b>${esc(t.alwaysT)}</b><div class="always-row">${
+      ALWAYS.map(id=>{
+        const it = ITEMS[id];
+        const ic = it.img
+          ? `<span class="pill-ico"><img src="${IMG_BASE}${it.img}" alt=""${it.st ? ` style="${it.st}"` : ""} loading="lazy"></span>`
+          : `<em aria-hidden="true">${it.icon || "•"}</em>`;
+        return `<button class="pill" type="button" data-id="${id}">${ic}${esc(it[lang].n)}</button>`;
+      }).join("")
+    }</div></div>`;
+  }
+
+  html += `<p class="today-hours">${esc(t.hours)}</p>`;
 
   el("#todayBody").innerHTML = html;
 }
