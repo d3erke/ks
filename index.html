@@ -73,7 +73,7 @@ body{
 img{max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-main section,footer{scroll-margin-top:132px}
+main section,footer{scroll-margin-top:140px}
 .hero .wrap{max-width:none;padding:0 10%}
 
 /* ---------- reveal on scroll (opacity only, cheap) ---------- */
@@ -91,9 +91,12 @@ header{
   background:rgba(251,246,236,.97);
   border-bottom:1px solid var(--line);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:120px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:128px}
 .brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:1.05rem;letter-spacing:.01em}
-.brand-mark{height:100px;flex-shrink:0}
+/* ust seritte amblem ustte, isim altinda: cember yazisi bu olcude okunmadigi icin adi metin tasir */
+header .brand{flex-direction:column;gap:5px;text-align:center;line-height:1.15}
+header .brand small{display:none}
+.brand-mark{height:88px;flex-shrink:0}
 .brand-mark img{height:100%;width:auto;display:block}
 .brand small{display:block;font-family:var(--font-body);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .nav-links{display:flex;gap:30px;font-weight:600;font-size:.92rem}
@@ -114,7 +117,7 @@ header{
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding:80px 0 88px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1.1fr;gap:46px;align-items:center}
 .kicker{
   display:inline-flex;align-items:center;gap:10px;
   font-size:.74rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
@@ -133,7 +136,7 @@ header{
 .hero-facts{display:flex;border-top:1px solid var(--line);max-width:34rem}
 .fact{padding:20px 28px 0 0;margin-right:28px;border-right:1px solid var(--line)}
 .fact:last-child{border-right:none;margin-right:0}
-.fact b{display:block;font-family:var(--font-display);font-size:1.9rem;font-weight:600;color:var(--brick);line-height:1.15}
+.fact b{display:block;white-space:nowrap;font-family:var(--font-display);font-size:1.9rem;font-weight:600;color:var(--brick);line-height:1.15}
 .fact span{font-size:.8rem;font-weight:600;color:var(--muted);letter-spacing:.04em}
 
 /* hero pot illustration */
@@ -142,8 +145,8 @@ header{
   position:relative;
   background:var(--dark);
   border-radius:28px;
-  padding:30px 30px 26px;
-  width:min(520px,100%);
+  padding:22px 22px 20px;
+  width:min(660px,100%);
   box-shadow:0 24px 60px rgba(46,36,24,.24);
 }
 .pot-card::after{
@@ -152,7 +155,7 @@ header{
   pointer-events:none;
 }
 .pot-photo{
-  width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 52%;
+  width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 50%;
   display:block;position:relative;z-index:1;
   border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
@@ -393,7 +396,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
   .foot-grid{grid-template-columns:1fr 1fr}
   .hero{padding:52px 0 68px}
   .hero-art{order:-1}
-  .pot-card{width:min(380px,100%);padding:26px 26px 22px}
+  .pot-card{width:min(560px,100%);padding:20px 20px 18px}
   .about-photo{aspect-ratio:16/11}
   .visit-photo{aspect-ratio:16/10}
   .map-embed{aspect-ratio:4/3}
@@ -402,9 +405,9 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
 @media(max-width:620px){
   .nav-links{display:none}
   /* mobilde marka yazisi gizlenir; amblem zaten ayni ismi tasiyor */
-  header .brand>span:not(.brand-mark){display:none}
-  .brand-mark{height:76px}
-  .nav{height:96px}
+  .brand-mark{height:66px}
+  .brand{font-size:.88rem}
+  .nav{height:104px}
   .hero .wrap{padding:0 14px}
   .pot-card{width:100%;padding:22px 22px 20px}
   .menu-feature,.menu-feature.menu-day,.press-cards,.foot-grid,.gallery{grid-template-columns:1fr}
@@ -413,8 +416,9 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
   .press{border-radius:0}
 }
 @media(max-width:430px){
-  .nav{gap:8px;height:92px}
-  .brand-mark{height:72px}
+  .nav{gap:8px;height:100px}
+  .brand-mark{height:62px}
+  .brand{font-size:.84rem}
   .nav .btn{padding:10px 13px;font-size:.8rem}
   .hero h1{font-size:2.25rem}
   .quote-card{padding:36px 26px}
@@ -427,7 +431,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Hüseyin Amca'nın Yeri — ana sayfa">
-      <span class="brand-mark"><img src="img/logo-amca.png" alt="" width="142" height="170"></span>
+      <span class="brand-mark"><img src="img/logo-amca.png" alt="" width="284" height="340"></span>
       <span>Hüseyin Amca'nın Yeri<small>Meşhur Kuru Fasulyeci · 1955</small></span>
     </a>
     <nav class="nav-links" aria-label="Sayfa içi">
@@ -471,7 +475,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
 
       <div class="hero-art">
         <div class="pot-card">
-          <img class="pot-photo" src="img/kazan-hero.jpg" alt="Kepçeyle kuru fasulye alınan kazan" width="1200" height="1200" fetchpriority="high">
+          <img class="pot-photo" src="img/kazan-hero.jpg" alt="Kepçeyle kuru fasulye alınan kazan" width="1600" height="1200" fetchpriority="high">
           <p class="pot-caption">"Kazan kaynar, mahalle doyar."</p>
         </div>
       </div>
@@ -744,7 +748,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="img/logo-amca.png" alt="Meşhur Kurufasulyeci Hüseyin Amca'nın Yeri" loading="lazy" width="142" height="170">
+        <img src="img/logo-amca.png" alt="Meşhur Kurufasulyeci Hüseyin Amca'nın Yeri" loading="lazy" width="284" height="340">
         <a class="brand" href="#top" style="margin-bottom:12px">
           <span>Hüseyin Amca'nın Yeri<small>Meşhur Kuru Fasulyeci · 1955</small></span>
         </a>
