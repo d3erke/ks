@@ -363,7 +363,7 @@ section{padding:92px 0}
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0 110px}
 .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.foot-brand img{width:99px;height:auto;display:block;margin-bottom:16px}
+.foot-brand img{max-width:220px;height:auto;mix-blend-mode:multiply;margin-bottom:14px}
 .rg-badge{margin-top:22px}
 .rg-badge img{mix-blend-mode:normal;margin-bottom:0}
 .foot-brand p{color:var(--muted);font-size:.9rem;max-width:24rem}
@@ -445,15 +445,15 @@ body.menu-open .wa-fab{display:none}
   .nav-links{display:none}
   /* mobilde marka yazisi gizlenir; amblem zaten ayni ismi tasiyor */
   /* serit kisaldi; bolumlerin durma payi da ona gore */
-  main section,footer{scroll-margin-top:108px}
+  main section,footer{scroll-margin-top:124px}
   /* mobil: solda hamburger, ortada amblem; isim ve WhatsApp butonu seritten kalkar */
   .burger{display:flex}
-  .nav{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;height:96px;gap:0}
+  .nav{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;height:112px;gap:0}
   .brand{justify-self:center}
-  .brand-mark{height:68px}
+  .brand-mark{height:84px}
   header .brand>span:not(.brand-mark){display:none}
   .nav>.btn{display:none}
-  .drawer{top:96px}
+  .drawer{top:112px}
   .hero .wrap{padding:0 14px}
   .pot-card{width:100%;padding:22px 22px 20px}
   .menu-feature,.menu-feature.menu-day,.press-cards,.foot-grid,.gallery{grid-template-columns:1fr}
@@ -462,9 +462,9 @@ body.menu-open .wa-fab{display:none}
   .press{border-radius:0}
 }
 @media(max-width:430px){
-  .nav{height:90px}
-  .brand-mark{height:64px}
-  .drawer{top:90px}
+  .nav{height:104px}
+  .brand-mark{height:78px}
+  .drawer{top:104px}
   .nav .btn{padding:10px 13px;font-size:.8rem}
   .hero h1{font-size:2.25rem}
   .quote-card{padding:36px 26px}
@@ -499,8 +499,7 @@ body.menu-open .wa-fab{display:none}
 
 <div class="drawer" id="mobilMenu">
   <nav aria-label="Mobil menü">
-    <a href="#menu">Menü</a>
-    <a href="menu.html">Tam Menü</a>
+    <a href="menu.html">Menü</a>
     <a href="#hakkimizda">Hakkımızda</a>
     <a href="#basin">Basında</a>
     <a href="#ulasim">Ulaşım</a>
@@ -818,7 +817,7 @@ body.menu-open .wa-fab{display:none}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="img/logo-amca.png" alt="Meşhur Kurufasulyeci Hüseyin Amca'nın Yeri" loading="lazy" width="284" height="340">
+        <img src="img/logo.jpg" alt="Meşhur Kurufasulyeci Hüseyin Amca'nın Yeri" loading="lazy" width="600" height="337">
         <a class="brand" href="#top" style="margin-bottom:12px">
           <span>Hüseyin Amca'nın Yeri<small>Meşhur Kuru Fasulyeci · 1955</small></span>
         </a>
