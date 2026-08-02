@@ -93,8 +93,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   color:rgba(231,211,168,.7);transition:background .18s,color .18s;white-space:nowrap;
 }
 .seg button[aria-pressed="true"]{background:var(--gold-soft);color:var(--navy)}
-/* tuval amblemin çevresinde eşit boşluk bırakacak şekilde kırpıldı; 216px doğal boyut */
-.logo-amca{display:block;width:min(216px,58vw);height:auto;margin:2px auto 6px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.38))}
+/* tuval amblemin tam sınırına kırpıldı; ölçü doğrudan amblemin boyutu */
+.logo-amca{display:block;width:min(142px,38vw);height:auto;margin:2px auto 6px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.38))}
 .cover h1{
   font-family:var(--font-display);
   font-size:clamp(1.5rem,6.2vw,1.95rem);
@@ -285,7 +285,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 /* ---------- alt bilgi ---------- */
 .foot{margin-top:30px;padding:26px 20px 32px;border-top:1px solid var(--line);background:var(--cream-2);text-align:center}
-.foot-logo{display:block;width:min(150px,38vw);margin:0 auto 16px;opacity:.95}
+.foot-logo{display:block;width:min(99px,26vw);margin:0 auto 16px;opacity:.95}
 .foot p{font-size:.83rem;color:var(--ink-soft);margin-bottom:5px}
 .foot .quote{font-family:var(--font-display);font-style:italic;color:var(--navy);font-size:.98rem;margin:14px 0 12px}
 .foot .legal{font-size:.7rem;color:var(--muted);margin-top:14px}
@@ -364,7 +364,7 @@ body.is-locked{overflow:hidden}
       </div>
     </div>
 
-    <img class="logo-amca" src="img/logo-amca.png" alt="Meşhur Kurufasülyeci Hüseyin Amca" width="216" height="232">
+    <img class="logo-amca" src="img/logo-amca.png" alt="Meşhur Kurufasülyeci Hüseyin Amca" width="142" height="170">
     <h1 data-i18n="title">Meşhur Kurufasülyeci<em>Hüseyin Amca</em></h1>
     <p class="tagline" data-i18n="tagline">Her sabah taze pişer; biten tencere o gün bir daha kurulmaz.</p>
     <span class="est" data-i18n="est">Since 1955 · Ortakent, Bodrum</span>
