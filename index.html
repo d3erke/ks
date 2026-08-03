@@ -10,7 +10,8 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ks-deploy-inky.vercel.app/img/kazan-fasulye.jpg">
 <link rel="canonical" href="https://ks-deploy-inky.vercel.app/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫘</text></svg>">
+<link rel="icon" href="img/logo-amca.png" sizes="any">
+<link rel="apple-touch-icon" href="img/logo-amca.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -72,7 +73,7 @@ body{
 img{max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-main section,footer{scroll-margin-top:84px}
+main section,footer{scroll-margin-top:156px}
 .hero .wrap{max-width:none;padding:0 10%}
 
 /* ---------- reveal on scroll (opacity only, cheap) ---------- */
@@ -90,14 +91,13 @@ header{
   background:rgba(251,246,236,.97);
   border-bottom:1px solid var(--line);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:144px}
 .brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:1.05rem;letter-spacing:.01em}
-.brand-mark{
-  width:42px;height:42px;border-radius:50%;
-  background:var(--brick);color:var(--gold-soft);
-  display:grid;place-items:center;flex-shrink:0;
-}
-.brand-mark svg{width:26px;height:26px}
+/* ust seritte amblem ustte, isim altinda: cember yazisi bu olcude okunmadigi icin adi metin tasir */
+header .brand{flex-direction:column;gap:5px;text-align:center;line-height:1.15}
+header .brand small{display:none}
+.brand-mark{height:100px;flex-shrink:0}
+.brand-mark img{height:100%;width:auto;display:block}
 .brand small{display:block;font-family:var(--font-body);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .nav-links{display:flex;gap:30px;font-weight:600;font-size:.92rem}
 .nav-links a{color:var(--ink-soft)}
@@ -117,7 +117,7 @@ header{
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding:80px 0 88px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1.1fr;gap:46px;align-items:center}
 .kicker{
   display:inline-flex;align-items:center;gap:10px;
   font-size:.74rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
@@ -136,7 +136,7 @@ header{
 .hero-facts{display:flex;border-top:1px solid var(--line);max-width:34rem}
 .fact{padding:20px 28px 0 0;margin-right:28px;border-right:1px solid var(--line)}
 .fact:last-child{border-right:none;margin-right:0}
-.fact b{display:block;font-family:var(--font-display);font-size:1.9rem;font-weight:600;color:var(--brick);line-height:1.15}
+.fact b{display:block;white-space:nowrap;font-family:var(--font-display);font-size:1.9rem;font-weight:600;color:var(--brick);line-height:1.15}
 .fact span{font-size:.8rem;font-weight:600;color:var(--muted);letter-spacing:.04em}
 
 /* hero pot illustration */
@@ -145,8 +145,8 @@ header{
   position:relative;
   background:var(--dark);
   border-radius:28px;
-  padding:60px 48px 50px;
-  width:min(520px,100%);
+  padding:22px 22px 20px;
+  width:min(660px,100%);
   box-shadow:0 24px 60px rgba(46,36,24,.24);
 }
 .pot-card::after{
@@ -154,27 +154,14 @@ header{
   background:radial-gradient(circle at 75% 12%,rgba(192,138,45,.28),transparent 55%);
   pointer-events:none;
 }
-.pot-svg{width:100%;height:auto;display:block;position:relative;z-index:1}
+.pot-photo{
+  width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 50%;
+  display:block;position:relative;z-index:1;
+  border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
 .pot-caption{
   position:relative;z-index:1;text-align:center;margin-top:26px;
   color:var(--gold-soft);font-family:var(--font-display);font-style:italic;font-size:1.05rem;
-}
-.stamp{
-  position:absolute;top:-22px;right:-14px;z-index:2;
-  width:110px;height:110px;
-  filter:drop-shadow(0 6px 14px rgba(46,36,24,.3));
-}
-.steam path{fill:none;stroke-linecap:round;opacity:0;animation:steam 5.5s ease-in-out infinite}
-.steam path:nth-child(2){animation-delay:1.8s}
-.steam path:nth-child(3){animation-delay:3.6s}
-@keyframes steam{
-  0%{transform:translateY(8px);opacity:0}
-  30%{opacity:.55}
-  70%{opacity:.3}
-  100%{transform:translateY(-16px);opacity:0}
-}
-@media (prefers-reduced-motion:reduce){
-  .steam path{animation:none;opacity:.35;transform:none}
 }
 
 /* ---------- section base ---------- */
@@ -229,6 +216,21 @@ section{padding:92px 0}
 .tag-gift{background:var(--gold-soft);color:var(--brick-deep)}
 .menu-note{margin-top:32px;text-align:center;color:var(--muted);font-size:.92rem}
 .menu-note b{color:var(--brick)}
+.menu-cta{
+  margin-top:34px;padding:30px 28px;border-radius:var(--radius);
+  background:var(--dark);color:var(--gold-soft);
+  display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.menu-cta::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 88% 10%,rgba(192,138,45,.26),transparent 55%);
+}
+.menu-cta>*{position:relative;z-index:1}
+.menu-cta b{display:block;font-family:var(--font-display);font-size:1.35rem;font-weight:600;color:#F7EEDC;margin-bottom:6px}
+.menu-cta p{font-size:.93rem;color:rgba(233,217,184,.72);max-width:34rem}
+.menu-cta .btn{background:var(--gold);color:var(--dark);flex-shrink:0}
+.menu-cta .btn:hover{background:var(--gold-soft)}
 
 /* ---------- about ---------- */
 .about-photos{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;margin-bottom:56px}
@@ -361,7 +363,7 @@ section{padding:92px 0}
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0 110px}
 .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.foot-brand img{max-width:220px;mix-blend-mode:multiply;margin-bottom:14px}
+.foot-brand img{max-width:220px;height:auto;mix-blend-mode:multiply;margin-bottom:14px}
 .rg-badge{margin-top:22px}
 .rg-badge img{mix-blend-mode:normal;margin-bottom:0}
 .foot-brand p{color:var(--muted);font-size:.9rem;max-width:24rem}
@@ -377,6 +379,45 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
 .foot-bottom i{font-style:italic;font-family:var(--font-display)}
 
 /* ---------- floating wa ---------- */
+/* ---------- mobil menü ---------- */
+.burger{
+  display:none;width:44px;height:44px;padding:0;
+  background:none;border:none;cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+}
+.burger span{display:block;width:22px;height:2px;border-radius:2px;background:var(--ink);transition:transform .22s,opacity .18s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{
+  position:fixed;left:0;right:0;bottom:0;z-index:45;
+  background:var(--bg);overflow-y:auto;
+  padding:10px 24px 40px;
+  visibility:hidden;opacity:0;transform:translateY(-10px);
+  transition:opacity .2s ease,transform .2s ease,visibility .2s;
+}
+.drawer.is-open{visibility:visible;opacity:1;transform:none}
+.drawer nav a{
+  display:block;padding:17px 2px;
+  font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--ink);
+  border-bottom:1px solid var(--line);
+}
+.drawer nav a:active{color:var(--brick)}
+.drawer-actions{display:grid;gap:11px;margin-top:26px}
+.drawer-actions a{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px;border-radius:999px;font-weight:700;font-size:.98rem;
+}
+.drawer-actions svg{width:19px;height:19px;flex-shrink:0}
+.drawer-actions .d-wa{background:var(--wa);color:#fff;fill:currentColor}
+.drawer-actions .d-map{background:var(--dark);color:var(--gold-soft)}
+.drawer-actions .d-tel{border:1.5px solid var(--line);color:var(--ink)}
+body.menu-open{overflow:hidden}
+body.menu-open .wa-fab{display:none}
+@media (prefers-reduced-motion:reduce){
+  .burger span,.drawer{transition:none}
+}
+
 .wa-fab{
   position:fixed;right:22px;bottom:22px;z-index:60;
   width:58px;height:58px;border-radius:50%;
@@ -394,8 +435,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
   .foot-grid{grid-template-columns:1fr 1fr}
   .hero{padding:52px 0 68px}
   .hero-art{order:-1}
-  .pot-card{width:min(380px,100%);padding:48px 38px 40px}
-  .stamp{width:92px;height:92px;top:-16px;right:-4px}
+  .pot-card{width:min(560px,100%);padding:20px 20px 18px}
   .about-photo{aspect-ratio:16/11}
   .visit-photo{aspect-ratio:16/10}
   .map-embed{aspect-ratio:4/3}
@@ -403,17 +443,27 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
 }
 @media(max-width:620px){
   .nav-links{display:none}
+  /* mobil serit: solda hamburger, ortada amblem. isim de WhatsApp butonu da seritten kalkar,
+     amblem 100px durur; serit yuksekligi = amblem + 14px nefes payi. */
+  main section,footer{scroll-margin-top:140px}
+  .burger{display:flex}
+  .nav{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;height:128px;gap:0}
+  .brand{justify-self:center}
+  .brand-mark{height:100px}
+  header .brand>span:not(.brand-mark){display:none}
+  .nav>.btn{display:none}
+  .drawer{top:128px}
   .hero .wrap{padding:0 14px}
-  .pot-card{width:100%;padding:44px 26px 36px}
+  .pot-card{width:100%;padding:22px 22px 20px}
   .menu-feature,.menu-feature.menu-day,.press-cards,.foot-grid,.gallery{grid-template-columns:1fr}
   .hero-facts{flex-wrap:wrap}
   .fact{border-right:none;padding-right:0;margin-right:22px}
   .press{border-radius:0}
 }
 @media(max-width:430px){
-  .brand small{letter-spacing:.12em}
-  .nav{gap:10px}
-  .nav .btn{padding:10px 14px}
+  .nav{height:122px}
+  .drawer{top:122px}
+  main section,footer{scroll-margin-top:134px}
   .hero h1{font-size:2.25rem}
   .quote-card{padding:36px 26px}
   .visit-card{padding:30px 24px}
@@ -424,19 +474,15 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M8.6 3.4c0 1.1 1 1.3 1 2.4M12 3.4c0 1.1 1 1.3 1 2.4M15.4 3.4c0 1.1 1 1.3 1 2.4" stroke-width="1.5" stroke-linecap="round" opacity=".85"/>
-          <path d="M2.6 9.3h2m16.8 0h-2" stroke-width="1.8" stroke-linecap="round"/>
-          <rect x="4" y="8.2" width="16" height="2.4" rx="1.2" fill="currentColor" stroke="none"/>
-          <path d="M5 11.4h14v1.3c0 4-2.7 6.6-7 6.6s-7-2.6-7-6.6v-1.3Z" fill="currentColor" stroke="none"/>
-        </svg>
-      </span>
+    <button class="burger" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobilMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand" href="#top" aria-label="Hüseyin Amca'nın Yeri — ana sayfa">
+      <span class="brand-mark"><img src="img/logo-amca.png" alt="" width="284" height="340"></span>
       <span>Hüseyin Amca'nın Yeri<small>Meşhur Kuru Fasulyeci · 1955</small></span>
     </a>
     <nav class="nav-links" aria-label="Sayfa içi">
-      <a href="#menu">Menü</a>
+      <a href="menu.html">Menü</a>
       <a href="#hakkimizda">Hakkımızda</a>
       <a href="#basin">Basında</a>
       <a href="#ulasim">Ulaşım</a>
@@ -447,6 +493,26 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
     </a>
   </div>
 </header>
+
+<div class="drawer" id="mobilMenu">
+  <nav aria-label="Mobil menü">
+    <a href="menu.html">Menü</a>
+    <a href="#hakkimizda">Hakkımızda</a>
+    <a href="#basin">Basında</a>
+    <a href="#ulasim">Ulaşım</a>
+  </nav>
+  <div class="drawer-actions">
+    <a class="d-wa" href="https://wa.me/905076502833?text=Merhaba%2C%20H%C3%BCseyin%20Amca%27n%C4%B1n%20Yeri%20i%C3%A7in%20yaz%C4%B1yorum." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .7-.1 1.2Z"/></svg>WhatsApp'tan yazın
+    </a>
+    <a class="d-map" href="https://share.google/qxEepytfUtP2RpNf0" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Yol Tarifi Al
+    </a>
+    <a class="d-tel" href="tel:+902523582129">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Lokantayı Ara
+    </a>
+  </div>
+</div>
 
 <main id="top">
 
@@ -475,50 +541,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
 
       <div class="hero-art">
         <div class="pot-card">
-          <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
-            <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
-            <circle cx="60" cy="60" r="58" fill="#241B12"/>
-            <circle cx="60" cy="60" r="56" fill="none" stroke="#C08A2D" stroke-width="1.5" opacity=".9"/>
-            <circle cx="60" cy="60" r="30" fill="none" stroke="#C08A2D" stroke-width="1" opacity=".6"/>
-            <text fill="#E9D9B8" font-size="12.5" font-weight="700" letter-spacing="3" font-family="Manrope,sans-serif">
-              <textPath href="#circ">EL EMEĞİ · GÖZ NURU · 1955 ·</textPath>
-            </text>
-            <text x="60" y="66" text-anchor="middle" fill="#C08A2D" font-size="17" font-family="Fraunces,serif" font-style="italic">1955</text>
-          </svg>
-          <svg class="pot-svg" viewBox="0 0 300 240" aria-hidden="true">
-            <defs>
-              <linearGradient id="steamGrad" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0" stop-color="#E9D9B8" stop-opacity=".75"/>
-                <stop offset=".7" stop-color="#E9D9B8" stop-opacity=".3"/>
-                <stop offset="1" stop-color="#E9D9B8" stop-opacity="0"/>
-              </linearGradient>
-              <filter id="steamSoft" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="1.6"/>
-              </filter>
-            </defs>
-            <g class="steam" stroke="url(#steamGrad)" filter="url(#steamSoft)">
-              <path stroke-width="5.5" d="M118 88 C108 76, 128 68, 120 54 C112 40, 130 34, 124 20"/>
-              <path stroke-width="6.5" d="M150 84 C140 70, 162 62, 152 46 C144 32, 162 26, 156 10"/>
-              <path stroke-width="5" d="M182 88 C174 76, 192 68, 184 54 C176 42, 192 36, 186 22"/>
-            </g>
-            <g transform="translate(150 160) scale(1.13) translate(-150 -160)">
-              <ellipse cx="150" cy="196" rx="98" ry="14" fill="#1B140D"/>
-              <path d="M58 108h184v8c0 46-30 78-92 78s-92-32-92-78v-8Z" fill="#A93B26"/>
-              <path d="M58 108h184v8c0 10-2 19-5 28H63c-3-9-5-18-5-28v-8Z" fill="#B84A32"/>
-              <rect x="50" y="98" width="200" height="14" rx="7" fill="#7E2B1B"/>
-              <path d="M34 105c-8 0-8 14 0 14h18v-14H34Zm232 0c8 0 8 14 0 14h-18v-14h18Z" fill="#7E2B1B"/>
-              <g fill="#E9D9B8">
-                <ellipse cx="105" cy="99" rx="13" ry="8" transform="rotate(-14 105 99)"/>
-                <ellipse cx="138" cy="95" rx="13" ry="8" transform="rotate(9 138 95)"/>
-                <ellipse cx="171" cy="98" rx="13" ry="8" transform="rotate(-7 171 98)"/>
-                <ellipse cx="200" cy="100" rx="12" ry="7" transform="rotate(12 200 100)"/>
-              </g>
-              <g fill="#D9BF92">
-                <ellipse cx="121" cy="102" rx="12" ry="7" transform="rotate(20 121 102)"/>
-                <ellipse cx="187" cy="103" rx="11" ry="7" transform="rotate(-18 187 103)"/>
-              </g>
-            </g>
-          </svg>
+          <img class="pot-photo" src="img/kazan-hero.jpg" alt="Kepçeyle kuru fasulye alınan kazan" width="1600" height="1200" fetchpriority="high">
           <p class="pot-caption">"Kazan kaynar, mahalle doyar."</p>
         </div>
       </div>
@@ -551,9 +574,9 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
           </div>
         </article>
         <article class="feature">
-          <div class="feature-photo"><img src="img/sofra.jpg" alt="Tereyağlı pirinç pilavı" loading="lazy" style="transform:scale(2.8);transform-origin:100% 62%"></div>
+          <div class="feature-photo"><img src="img/sofra.jpg" alt="Tereyağlı pilav" loading="lazy" style="transform:scale(2.8);transform-origin:100% 62%"></div>
           <div class="feature-body">
-            <h3>Pirinç Pilavı</h3>
+            <h3>Pilav</h3>
             <p>Tane tane, tereyağlı.</p>
           </div>
         </article>
@@ -570,10 +593,10 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
       <div class="menu-sub reveal">Günün Tencereleri</div>
       <div class="menu-feature menu-day reveal">
         <article class="feature">
-          <div class="feature-photo"><img src="img/pilic.jpg" alt="Mantarlı piliç" loading="lazy" style="object-position:50% 58%"></div>
+          <div class="feature-photo"><img src="img/pilic.jpg" alt="Tavuk sote" loading="lazy" style="object-position:50% 58%"></div>
           <div class="feature-body">
-            <h3>Piliç</h3>
-            <p>Mantarlı, ev usulü; ilk günden beri menüde.</p>
+            <h3>Tavuk Sote</h3>
+            <p>Taze sebzelerle sote edilir; ilk günden beri menüde.</p>
           </div>
         </article>
         <article class="feature">
@@ -592,16 +615,16 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
           </div>
         </article>
         <article class="feature">
-          <div class="feature-photo"><img src="img/sulu-kofte.jpg" alt="Sulu köfte" loading="lazy" style="object-position:50% 62%"></div>
+          <div class="feature-photo"><img src="img/sulu-kofte.jpg" alt="Salçalı köfte" loading="lazy" style="object-position:50% 62%"></div>
           <div class="feature-body">
-            <h3>Sulu Köfte</h3>
-            <p>Köfte, patates ve havuç; öz suyunda.</p>
+            <h3>Salçalı Köfte</h3>
+            <p>Domates salçasıyla pişer; patates ve havucuyla.</p>
           </div>
         </article>
         <article class="feature">
-          <div class="feature-photo"><img src="img/patlican.jpg" alt="Kıymalı patlıcan" loading="lazy" style="object-position:50% 52%"></div>
+          <div class="feature-photo"><img src="img/patlican.jpg" alt="Karnıyarık" loading="lazy" style="object-position:50% 52%"></div>
           <div class="feature-body">
-            <h3>Kıymalı Patlıcan</h3>
+            <h3>Karnıyarık</h3>
             <p>Közlenmiş dokusuyla, ağır ateşte.</p>
           </div>
         </article>
@@ -630,10 +653,20 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
         </article>
       </div>
 
-      <p class="menu-note reveal">Piliç ve mevsim sebzeleri de pişer; yemekten sonra çay ve helva ikramdır. Yemekler öğlen saatlerinde en tazedir. <b>Günün menüsü için WhatsApp'tan sorabilirsiniz.</b></p>
+      <p class="menu-note reveal">Tavuk ve mevsim sebzeleri de pişer; yemekten sonra çay ve helva ikramdır. Yemekler öğlen saatlerinde en tazedir. <b>Günün menüsü için WhatsApp'tan sorabilirsiniz.</b></p>
+
+      <div class="menu-cta reveal">
+        <div>
+          <b>Tam menüyü görün</b>
+          <p>Bütün yemekler, fiyatlarıyla birlikte. Hangi gün ne piştiğini gösteren gün gün program ve mevsimine göre değişen ikramlar da orada.</p>
+        </div>
+        <a class="btn" href="menu.html">Tam Menü
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+        </a>
+      </div>
 
       <div class="gallery reveal">
-        <figure><img src="img/kazan-fasulye.jpg" alt="Kaynayan kuru fasulye kazanı" loading="lazy" style="object-position:50% 60%"></figure>
+        <figure><img src="img/kuru-fasulye-hero.jpg" alt="Bir tabak kuru fasulye" loading="lazy"></figure>
         <figure><img src="img/helva.jpg" alt="İkram helvası" loading="lazy" style="object-position:50% 40%"></figure>
         <figure><img src="img/kuru-fasulye-teras.jpg" alt="Teras önünde bir tabak kuru fasulye" loading="lazy"></figure>
       </div>
@@ -664,7 +697,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
       <div class="story-grid">
         <div class="quote-card reveal">
           <blockquote>Buradan ekmek yedim, onun için bırakamıyorum. Dükkâna günde iki üç defa gidiyorum. Yemekleri kontrol etmediğim zaman içim rahat etmiyor.</blockquote>
-          <cite>Hüseyin Uysal <span>Kurucumuz. 97 yaşında, hâlâ her gün lokantada.</span></cite>
+          <cite>Hüseyin Uysal <span>Kurucumuz. 105 yaşında, hâlâ her gün lokantada.</span></cite>
         </div>
         <ul class="timeline reveal">
           <li>
@@ -781,16 +814,8 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="img/logo.jpg" alt="Meşhur Kurufasulyeci Hüseyin Amca'nın Yeri" loading="lazy">
+        <img src="img/logo.jpg" alt="Meşhur Kurufasulyeci Hüseyin Amca'nın Yeri" loading="lazy" width="600" height="337">
         <a class="brand" href="#top" style="margin-bottom:12px">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M8.6 3.4c0 1.1 1 1.3 1 2.4M12 3.4c0 1.1 1 1.3 1 2.4M15.4 3.4c0 1.1 1 1.3 1 2.4" stroke-width="1.5" stroke-linecap="round" opacity=".85"/>
-              <path d="M2.6 9.3h2m16.8 0h-2" stroke-width="1.8" stroke-linecap="round"/>
-              <rect x="4" y="8.2" width="16" height="2.4" rx="1.2" fill="currentColor" stroke="none"/>
-              <path d="M5 11.4h14v1.3c0 4-2.7 6.6-7 6.6s-7-2.6-7-6.6v-1.3Z" fill="currentColor" stroke="none"/>
-            </svg>
-          </span>
           <span>Hüseyin Amca'nın Yeri<small>Meşhur Kuru Fasulyeci · 1955</small></span>
         </a>
         <p>1955'ten beri Ortakent'te aynı lokanta: kuru fasulye, tas kebabı, ev turşusu. El emeği, göz nuru.</p>
@@ -808,8 +833,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
       <div class="foot">
         <h4>Sayfalar</h4>
         <ul>
-          <li><a href="#menu">Menü</a></li>
-          <li><a href="menu.html">Dijital Menü (QR)</a></li>
+          <li><a href="menu.html">Menü</a></li>
           <li><a href="#hakkimizda">Hakkımızda</a></li>
           <li><a href="#basin">Basında Biz</a></li>
           <li><a href="#ulasim">Ulaşım</a></li>
@@ -848,6 +872,28 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0
 </a>
 
 <script>
+/* ---------- mobil menü ---------- */
+(function(){
+  const burger = document.querySelector('.burger');
+  const drawer = document.getElementById('mobilMenu');
+  const wide   = window.matchMedia('(min-width:621px)');
+
+  function setMenu(open){
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+    drawer.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
+  }
+  burger.addEventListener('click', () => setMenu(!drawer.classList.contains('is-open')));
+  /* bağlantıya basınca kapansın; aynı sayfadaki bölümlere gidiyor */
+  drawer.addEventListener('click', e => { if(e.target.closest('a')) setMenu(false) });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && drawer.classList.contains('is-open')){ setMenu(false); burger.focus() }
+  });
+  /* ekran genişleyip masaüstü şeridine dönerse açık kalmasın */
+  wide.addEventListener('change', e => { if(e.matches) setMenu(false) });
+})();
+
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
 },{threshold:.12});

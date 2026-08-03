@@ -11,7 +11,8 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ks-deploy-inky.vercel.app/img/kazan-fasulye.jpg">
 <link rel="canonical" href="https://ks-deploy-inky.vercel.app/menu.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫘</text></svg>">
+<link rel="icon" href="img/logo-amca.png" sizes="any">
+<link rel="apple-touch-icon" href="img/logo-amca.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -92,8 +93,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   color:rgba(231,211,168,.7);transition:background .18s,color .18s;white-space:nowrap;
 }
 .seg button[aria-pressed="true"]{background:var(--gold-soft);color:var(--navy)}
-/* tuval amblemin çevresinde eşit boşluk bırakacak şekilde kırpıldı; 216px doğal boyut */
-.logo-amca{display:block;width:min(216px,58vw);height:auto;margin:2px auto 6px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.38))}
+/* tuval amblemin tam sınırına kırpıldı; ölçü doğrudan amblemin boyutu */
+.logo-amca{display:block;width:min(142px,38vw);height:auto;margin:2px auto 6px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.38))}
 .cover h1{
   font-family:var(--font-display);
   font-size:clamp(1.5rem,6.2vw,1.95rem);
@@ -284,7 +285,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 /* ---------- alt bilgi ---------- */
 .foot{margin-top:30px;padding:26px 20px 32px;border-top:1px solid var(--line);background:var(--cream-2);text-align:center}
-.foot-logo{display:block;width:min(150px,38vw);margin:0 auto 16px;opacity:.95}
+.foot-logo{display:block;width:min(99px,26vw);margin:0 auto 16px;opacity:.95}
 .foot p{font-size:.83rem;color:var(--ink-soft);margin-bottom:5px}
 .foot .quote{font-family:var(--font-display);font-style:italic;color:var(--navy);font-size:.98rem;margin:14px 0 12px}
 .foot .legal{font-size:.7rem;color:var(--muted);margin-top:14px}
@@ -363,7 +364,7 @@ body.is-locked{overflow:hidden}
       </div>
     </div>
 
-    <img class="logo-amca" src="img/logo-amca.png" alt="Meşhur Kurufasülyeci Hüseyin Amca" width="216" height="232">
+    <img class="logo-amca" src="img/logo-amca.png" alt="Meşhur Kurufasülyeci Hüseyin Amca" width="142" height="170">
     <h1 data-i18n="title">Meşhur Kurufasülyeci<em>Hüseyin Amca</em></h1>
     <p class="tagline" data-i18n="tagline">Her sabah taze pişer; biten tencere o gün bir daha kurulmaz.</p>
     <span class="est" data-i18n="est">Since 1955 · Ortakent, Bodrum</span>
@@ -563,7 +564,7 @@ const ITEMS = {
 
   "pilav":{
     img:"sofra.jpg", st:"transform:scale(2.6);transform-origin:100% 62%", p:"110 ₺", b:["veg","helal"],
-    tr:{n:"Pirinç Pilavı", d:"Tereyağlı Türk usulü beyaz pilav.",
+    tr:{n:"Pilav", d:"Tereyağlı Türk usulü beyaz pilav.",
         l:"Kuru fasulyenin ayrılmaz eşlikçisi. Tane tane pişer, tereyağıyla çekilir."},
     en:{n:"Rice Pilaf", d:"Turkish-style white rice with butter.",
         l:"The inseparable companion of the bean stew — cooked grain by grain and finished with butter."}
@@ -585,9 +586,9 @@ const ITEMS = {
   },
   "eriste":{
     img:"eriste.jpg", st:"object-position:50% 52%", bigSt:"object-position:50% 52%", p:"160 ₺", b:["veg","helal","home"],
-    tr:{n:"Tereyağlı Köy Eriştesi", d:"El yapımı geleneksel erişte.",
+    tr:{n:"Erişte", d:"El yapımı geleneksel erişte.",
         l:"Erişte burada, elde açılır. Çarşamba günü tereyağıyla tencereye girer."},
-    en:{n:"Village Erişte with Butter", d:"Handmade traditional noodles.",
+    en:{n:"Erişte — Handmade Noodles", d:"Handmade traditional noodles.",
         l:"The noodles are rolled and cut by hand here. On Wednesdays they go into the pot with butter."}
   },
 
@@ -651,7 +652,7 @@ const ITEMS = {
 };
 
 /* --- her gün tencerede olanlar --- */
-const ALWAYS = ["kuru-fasulye","pilav","bulgur-pilavi","tas-kebabi"];
+const ALWAYS = ["kuru-fasulye","tas-kebabi","tavuk-sote","pilav","bulgur-pilavi"];
 
 /* --- gün gün program --- */
 const DAYS = [
