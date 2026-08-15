@@ -260,7 +260,7 @@ section{padding:92px 0}
   font-size:1.08rem;border-left:2px solid var(--gold);padding-left:22px;margin-top:28px;
 }
 .tabela-wrap{text-align:center;margin-bottom:56px}
-.tabela-wrap img{max-width:min(460px,86%);mix-blend-mode:multiply}
+.tabela-wrap img{max-width:min(460px,86%)}
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .quote-card{
   background:var(--paper);
@@ -318,14 +318,17 @@ section{padding:92px 0}
   font-family:var(--font-body);font-size:.88rem;font-weight:600;
 }
 .g-write:hover{background:#1765cc}
-.g-scroll{
-  display:grid;grid-auto-flow:column;grid-auto-columns:min(320px,82%);
-  gap:14px;overflow-x:auto;padding:2px 2px 14px;
-  scroll-snap-type:x proximity;scrollbar-width:none;
+.g-marquee{
+  overflow:hidden;padding:2px 0 14px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
 }
-.g-scroll::-webkit-scrollbar{display:none}
+.g-track{display:flex;gap:14px;width:max-content;animation:g-kay 90s linear infinite}
+.g-marquee:hover .g-track,.g-marquee:focus-within .g-track,.g-marquee.duraklat .g-track{animation-play-state:paused}
+@keyframes g-kay{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-50% - 7px),0,0)}}
+@media (prefers-reduced-motion:reduce){.g-track{animation:none}.g-marquee{overflow-x:auto}}
 .g-card{
-  scroll-snap-align:start;background:#fff;border-radius:14px;padding:20px;
+  width:320px;flex:0 0 auto;background:#fff;border-radius:14px;padding:20px;
   display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(0,0,0,.16);
 }
 .g-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
@@ -432,9 +435,9 @@ section{padding:92px 0}
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0 110px}
 .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.foot-brand img{max-width:220px;height:auto;mix-blend-mode:multiply;margin-bottom:14px}
+.foot-brand img{max-width:220px;height:auto;margin-bottom:14px}
 .rg-badge{margin-top:22px}
-.rg-badge img{mix-blend-mode:normal;margin-bottom:0}
+.rg-badge img{margin-bottom:0}
 .foot-brand p{color:var(--muted);font-size:.9rem;max-width:24rem}
 .foot h4{font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);margin-bottom:16px}
 .foot ul{list-style:none}
@@ -839,7 +842,8 @@ body.menu-open .wa-fab{display:none}
             </div>
             <a class="g-write" href="https://www.google.com/search?sa=X&amp;q=Me%C5%9Fhur+Kuru+Fasulyeci+-+H%C3%BCseyin+Amcan%C4%B1n+Yeri+Reviews&amp;rflfq=1&amp;num=20&amp;stick=H4sIAAAAAAAAAONgkxIxNDG2sDC0NLQwsTA3MTUyNjMyMNzAyPiK0dw39ej8jNIiBe_SolIFt8Ti0pzK1ORMBV0Fj8N7ilMrM_MUHHOTE_OObMxTiEwtylQISi3LTC0vXsRKrk4ABsM93I8AAAA&amp;rldimm=14388191848745236201&amp;tbm=lcl&amp;hl=tr#lkt=LocalPoiReviews" target="_blank" rel="noopener">Google'da değerlendirin</a>
           </div>
-          <div class="g-scroll">
+          <div class="g-marquee">
+            <div class="g-track">
           <article class="g-card">
             <div class="g-head">
               <span class="g-av" style="background:#5c6bc0" aria-hidden="true">Ö</span>
@@ -904,6 +908,71 @@ body.menu-open .wa-fab{display:none}
             <div class="g-stars" role="img" aria-label="5 üzerinden 5 yıldız"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg></div>
             <p class="g-text">Yıllardır giderim, lezzetinden hiç taviz vermedi. Tas kebabı başta, kuru fasulyesi… Bir süre ayrı kalınca arıyorsunuz. Haftada bir gitmez isek eksiklik hissediyoruz. Gerçek bir lezzet noktası.</p>
           </article>
+          <article class="g-card" aria-hidden="true">
+            <div class="g-head">
+              <span class="g-av" style="background:#5c6bc0" aria-hidden="true">Ö</span>
+              <div><div class="g-name">Ömer Öztürk</div><div class="g-when">3 hafta önce</div></div>
+            </div>
+            <div class="g-stars" role="img" aria-label="5 üzerinden 5 yıldız"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg></div>
+            <p class="g-text">Gerçekten uzun yılların tecrübesi her tabağa yansıyor. Dededen toruna devam eden bu aile işletmesinde hem lezzet hem de samimiyet bir arada. Özellikle meşhur kuru fasulyesi tam kıvamında; yanında pilavı ve turşusuyla harika bir uyum yakalıyor. Ev yemekleri de günlük, taze ve anne eli değmiş gibi. Mekân temiz, çalışanlar güler yüzlü ve fiyatlar da oldukça makul. Ev yemeği seven herkesin mutlaka uğraması gereken bir adres. Kesinlikle tavsiye ederim.</p>
+          </article>
+          <article class="g-card" aria-hidden="true">
+            <div class="g-head">
+              <span class="g-av" style="background:#8d6e63" aria-hidden="true">Y</span>
+              <div><div class="g-name">Yunus Karabulut</div><div class="g-when">2 hafta önce</div></div>
+            </div>
+            <div class="g-stars" role="img" aria-label="5 üzerinden 5 yıldız"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg></div>
+            <p class="g-text">Mekan gerçekten çok temizdi, garsonlar çok tatlı ve çok güler yüzlü. Kurufasülye ve taş kebabı çok güzeldi, bu işletmeye kesinlikle gidilmeli. Hele ki o helva ve ev yapımı turşuyu asla unutamıcam. Kesinlikle bu işletme 5 yıldızı hakediyor.</p>
+          </article>
+          <article class="g-card" aria-hidden="true">
+            <div class="g-head">
+              <span class="g-av" style="background:#00897b" aria-hidden="true">S</span>
+              <div><div class="g-name">Sinan Sezgin</div><div class="g-when">1 ay önce</div></div>
+            </div>
+            <div class="g-stars" role="img" aria-label="5 üzerinden 5 yıldız"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg></div>
+            <p class="g-text">Gerçekten adının hakkını veren bir işletme. Kuru fasulye çok lezzetliydi, tane tane pişmiş ve tam kıvamındaydı. Pilavı da oldukça başarılıydı. Çalışanlar güler yüzlü ve ilgili, servis hızlıydı. Mekân temiz ve aile işletmesi sıcaklığını hissediyorsunuz. Yemek sonunda ikram edilen çay ve un helvası da çok hoş bir jestti. Bodrum'da ev yemeği ve kaliteli bir kuru fasulye yemek isteyen herkese gönül rahatlığıyla tavsiye ederim. Tekrar geleceğiz.</p>
+          </article>
+          <article class="g-card" aria-hidden="true">
+            <div class="g-head">
+              <span class="g-av" style="background:#e53935" aria-hidden="true">M</span>
+              <div><div class="g-name">Mehmet Muslu</div><div class="g-when">1 ay önce</div></div>
+            </div>
+            <div class="g-stars" role="img" aria-label="5 üzerinden 5 yıldız"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg></div>
+            <p class="g-text">Tas kebabı Bodrum'un en iyisidir; yıllardır öğle yemeğini yediğim tarihi esnaf lokantası. Perşembe, cuma helva veya meyve ikramı var.</p>
+          </article>
+          <article class="g-card" aria-hidden="true">
+            <div class="g-head">
+              <span class="g-av" style="background:#fb8c00" aria-hidden="true">M</span>
+              <div><div class="g-name">Mert Karan</div><div class="g-when">1 ay önce</div></div>
+            </div>
+            <div class="g-stars" role="img" aria-label="5 üzerinden 5 yıldız"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg></div>
+            <p class="g-text">Bambaşka bi lezzet, bambaşka bi hizmet. Böyle samimi, güleryüzlü gerçek esnafları özlemişiz. Yemekten sonra ikram edilen türk kahvesini kaşık helvası ile denemeyi unutmayın. Fasulye gerçekten çok lezzetli, maliyetlerden kısılmadığı çok belli. Birçok kez daha uğradığım bir dükkan olarak kayıtlara geçecektir.</p>
+          </article>
+          <article class="g-card" aria-hidden="true">
+            <div class="g-head">
+              <span class="g-av" style="background:#43a047" aria-hidden="true">E</span>
+              <div><div class="g-name">Erdem Aydin</div><div class="g-when">1 ay önce</div></div>
+            </div>
+            <div class="g-stars" role="img" aria-label="5 üzerinden 5 yıldız"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg></div>
+            <p class="g-text">Bütün yemekleri çok lezzetli, hijyen konusunda da gayet başarılı. Özellikle cuma günleri çıkan imambayıldı ve tatar mükemmel.</p>
+          </article>
+          <article class="g-card" aria-hidden="true">
+            <div class="g-head">
+              <span class="g-av" style="background:#3949ab" aria-hidden="true">F</span>
+              <div><div class="g-name">Ferdican Karabıyık</div><div class="g-when">1 ay önce</div></div>
+            </div>
+            <div class="g-stars" role="img" aria-label="5 üzerinden 5 yıldız"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg></div>
+            <p class="g-text">Kuru fasulye ve taş kebabı denilince akla gelen tek mekan. Merkezi konumda ve personelleri her zaman güler yüzlü olan nadir mekanlardan biri.</p>
+          </article>
+          <article class="g-card" aria-hidden="true">
+            <div class="g-head">
+              <span class="g-av" style="background:#7E2B1B" aria-hidden="true">K</span>
+              <div><div class="g-name">Koray Erel</div><div class="g-when">Google yorumu</div></div>
+            </div>
+            <div class="g-stars" role="img" aria-label="5 üzerinden 5 yıldız"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FBBC04" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg></div>
+            <p class="g-text">Yıllardır giderim, lezzetinden hiç taviz vermedi. Tas kebabı başta, kuru fasulyesi… Bir süre ayrı kalınca arıyorsunuz. Haftada bir gitmez isek eksiklik hissediyoruz. Gerçek bir lezzet noktası.</p>
+          </article>
+            </div>
           </div>
           <p class="g-foot">Yorumlar Google'dan alınmıştır; tamamı Google Haritalar'da görülebilir.</p>
         </div>
@@ -975,7 +1044,7 @@ body.menu-open .wa-fab{display:none}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="img/logo.jpg" alt="Meşhur Kurufasulyeci Hüseyin Amca'nın Yeri" loading="lazy" width="600" height="337">
+        <img src="img/logo-foot.jpg" alt="Meşhur Kurufasulyeci Hüseyin Amca'nın Yeri" loading="lazy" width="600" height="337">
         <a class="brand" href="#top" style="margin-bottom:12px">
           <span>Hüseyin Amca'nın Yeri<small>Meşhur Kuru Fasulyeci · 1955</small></span>
         </a>
@@ -1034,14 +1103,23 @@ body.menu-open .wa-fab{display:none}
 
 <script>
 /* ---------- uzun yorumlarda "devamını oku" ---------- */
-document.querySelectorAll('.g-card').forEach(k=>{
-  const t=k.querySelector('.g-text');
-  if(t.scrollHeight - t.clientHeight < 4) return;      // zaten sigiyorsa dugme gerekmez
-  const d=document.createElement('button');
-  d.type='button'; d.className='g-more'; d.textContent='Devamını oku';
-  d.addEventListener('click',()=>{ k.classList.add('acik'); d.remove() });
-  t.after(d);
-});
+(function(){
+  const serit  = document.querySelector('.g-marquee');
+  const kartlar = [...document.querySelectorAll('.g-card')];
+  const yarim  = kartlar.length / 2;                      // ikinci yari birebir kopya
+  kartlar.forEach((k, i) => {
+    const t = k.querySelector('.g-text');
+    if (!t || t.scrollHeight - t.clientHeight < 4) return; // sigiyorsa dugme gereksiz
+    const d = document.createElement('button');
+    d.type = 'button'; d.className = 'g-more'; d.textContent = 'Devamını oku';
+    d.addEventListener('click', () => {
+      const es = kartlar[(i + yarim) % kartlar.length];    // ayni yorumun oteki kopyasi
+      [k, es].forEach(c => { c && c.classList.add('acik'); c && c.querySelector('.g-more')?.remove(); });
+      serit.classList.add('duraklat');                     // okurken akmasin
+    });
+    t.after(d);
+  });
+})();
 
 /* ---------- mobil menü ---------- */
 (function(){
