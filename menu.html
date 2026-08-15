@@ -364,7 +364,7 @@ body.is-locked{overflow:hidden}
       </div>
     </div>
 
-    <img class="logo-amca" src="img/logo-amca.png" alt="Meşhur Kurufasülyeci Hüseyin Amca" width="142" height="170">
+    <img class="logo-amca" src="img/logo-amca.png" alt="Meşhur Kurufasülyeci Hüseyin Amca" width="284" height="340">
     <h1 data-i18n="title">Meşhur Kurufasülyeci<em>Hüseyin Amca</em></h1>
     <p class="tagline" data-i18n="tagline">Her sabah taze pişer; biten tencere o gün bir daha kurulmaz.</p>
     <span class="est" data-i18n="est">Since 1955 · Ortakent, Bodrum</span>
@@ -763,7 +763,7 @@ function badgeHTML(keys, extra){
 function itemHTML(id, extraBadges){
   const it = ITEMS[id]; if(!it) return "";
   const thumb = it.img
-    ? `<span class="item-thumb"><img src="${IMG_BASE}${it.img}" alt="" loading="lazy"${it.st ? ` style="${it.st}"` : ""}></span>`
+    ? `<span class="item-thumb"><img src="${IMG_BASE}sm/${it.img}" alt="" loading="lazy"${it.st ? ` style="${it.st}"` : ""}></span>`
     : `<span class="item-thumb is-art" aria-hidden="true">${it.icon || "🍽️"}</span>`;
   return `<button class="item" type="button" data-id="${id}">
     ${thumb}
@@ -820,7 +820,7 @@ function renderToday(){
   if(ik){
     const it = ITEMS[ik];
     const face = it.img
-      ? `<span class="ph"><img src="${IMG_BASE}${it.img}" alt=""${it.st ? ` style="${it.st}"` : ""} loading="lazy"></span>`
+      ? `<span class="ph"><img src="${IMG_BASE}sm/${it.img}" alt=""${it.st ? ` style="${it.st}"` : ""} loading="lazy"></span>`
       : `<span class="ico" aria-hidden="true">${it.icon || "🍽️"}</span>`;
     html += `<div class="ikram-line">
       ${face}
@@ -834,7 +834,7 @@ function renderToday(){
       ALWAYS.map(id=>{
         const it = ITEMS[id];
         const ic = it.img
-          ? `<span class="pill-ico"><img src="${IMG_BASE}${it.img}" alt=""${it.st ? ` style="${it.st}"` : ""} loading="lazy"></span>`
+          ? `<span class="pill-ico"><img src="${IMG_BASE}sm/${it.img}" alt=""${it.st ? ` style="${it.st}"` : ""} loading="lazy"></span>`
           : `<em aria-hidden="true">${it.icon || "•"}</em>`;
         return `<button class="pill" type="button" data-id="${id}">${ic}${esc(it[lang].n)}</button>`;
       }).join("")
