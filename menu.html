@@ -9,8 +9,8 @@
 <meta property="og:title" content="Menü — Meşhur Kurufasülyeci Hüseyin Amca">
 <meta property="og:description" content="1955'ten beri Ortakent'te. Her güne ayrı tencere.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://ks-deploy-inky.vercel.app/img/kazan-fasulye.jpg">
-<link rel="canonical" href="https://ks-deploy-inky.vercel.app/menu.html">
+<meta property="og:image" content="https://huseyinamca.com/img/kazan-fasulye.jpg">
+<link rel="canonical" href="https://huseyinamca.com/menu.html">
 <link rel="icon" href="img/logo-amca.png" sizes="any">
 <link rel="apple-touch-icon" href="img/logo-amca.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -200,8 +200,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 /* ---------- kategori şeridi ---------- */
 .tabs{
   position:sticky;top:0;z-index:40;margin-top:22px;
-  background:rgba(251,246,236,.96);
-  backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);
+  /* zemin zaten opak; arkasindaki bulaniklik gorunmuyordu ama her kaydirma karesinde hesaplaniyordu */
+  background:var(--cream);
   border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line);
 }
 .tabs-scroll{display:flex;gap:7px;overflow-x:auto;padding:10px 14px;scrollbar-width:none;scroll-snap-type:x proximity}
@@ -295,7 +295,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .bar{
   position:fixed;left:0;right:0;bottom:0;z-index:50;max-width:var(--shell);margin:0 auto;
   display:grid;grid-template-columns:repeat(3,1fr);
-  background:rgba(15,28,46,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  background:var(--navy-deep);
   padding-bottom:env(safe-area-inset-bottom);border-top:1px solid rgba(231,211,168,.14);
 }
 .bar a{display:flex;flex-direction:column;align-items:center;gap:5px;padding:11px 6px 12px;
@@ -525,7 +525,7 @@ const ITEMS = {
     en:{n:"Poached Chicken", d:"Simple, light poached chicken.", l:"Plain, light and filling — the same pot that gives us our chicken broth."}
   },
   "karniyarik":{
-    img:null, icon:"🍆", p:null, b:["helal"],
+    img:"karniyarik.jpg", p:null, b:["helal"],
     tr:{n:"Karnıyarık", d:"Kıymalı iç harcıyla doldurulmuş fırın patlıcan.", l:"Kıymalı iç harçla doldurulup fırınlanan patlıcan."},
     en:{n:"Karnıyarık", d:"Baked aubergine stuffed with minced beef.", l:"Aubergine split and filled with a minced beef stuffing, then baked."}
   },
@@ -537,7 +537,7 @@ const ITEMS = {
         l:"Hand-rolled meatballs simmered with potato and carrot in a tomato broth."}
   },
   "bezelyeli-kofte":{
-    img:null, icon:"🫛", p:"350 ₺", b:["helal"],
+    img:"bezelyeli-kofte.jpg", p:"350 ₺", b:["helal"],
     tr:{n:"Bezelyeli Köfte", d:"Bezelyeli sosla pişirilmiş köfte.", l:"Salı gününün yemeği. Köfteler bezelyeli sosun içinde pişer."},
     en:{n:"Meatballs with Peas", d:"Meatballs cooked in a pea sauce.", l:"Tuesday's dish — meatballs simmered in a sauce of green peas."}
   },
@@ -552,7 +552,7 @@ const ITEMS = {
     en:{n:"Mixed Fry", d:"Assorted fried vegetables and meat.", l:"Seasonal vegetables and meat fried together on one plate."}
   },
   "bamya":{
-    img:null, icon:"🌿", p:null, b:["helal"],
+    img:"bamya.jpg", p:null, b:["helal"],
     tr:{n:"Bamya", d:"Geleneksel usulde pişirilmiş bamya yemeği.", l:"Perşembe gününün yemeği. Geleneksel usulde, limonlu suyunda pişer."},
     en:{n:"Okra Stew", d:"Okra cooked the traditional way.", l:"Thursday's dish — okra simmered the traditional way, finished with lemon."}
   },
@@ -563,33 +563,26 @@ const ITEMS = {
   },
 
   "pilav":{
-    img:"sofra.jpg", st:"transform:scale(2.6);transform-origin:100% 62%", p:"110 ₺", b:["veg","helal"],
+    img:"pilav.jpg", p:"110 ₺", b:["veg","helal"],
     tr:{n:"Pilav", d:"Tereyağlı Türk usulü beyaz pilav.",
         l:"Kuru fasulyenin ayrılmaz eşlikçisi. Tane tane pişer, tereyağıyla çekilir."},
     en:{n:"Rice Pilaf", d:"Turkish-style white rice with butter.",
         l:"The inseparable companion of the bean stew — cooked grain by grain and finished with butter."}
   },
   "bulgur-pilavi":{
-    img:null, icon:"🌾", p:"120 ₺", b:["veg","helal"],
+    img:"bulgur-pilavi.jpg", p:"120 ₺", b:["veg","helal"],
     tr:{n:"Bulgur Pilavı", d:"Nefis baharatlı bulgur pilavı.", l:"Pirincin yanında her gün tencerede olan ikinci pilav."},
     en:{n:"Bulgur Pilaf", d:"Bulgur pilaf with spices.", l:"The second pilaf, in the pot every day alongside the rice."}
   },
   "lokum-pilavi":{
     img:"lokum-pilavi.jpg", st:"object-position:50% 52%", bigSt:"object-position:50% 52%", p:"190 ₺", b:["veg","helal"],
-    tr:{n:"Lokum Pilavı", d:"Özel hazırlanmış lokum pilavı.", l:"Pazartesi günü tencereye giren özel pilavımız."},
-    en:{n:"Lokum Pilaf", d:"Our specially prepared pilaf.", l:"Our special pilaf, cooked on Mondays."}
+    tr:{n:"Lokum Pilavı", d:"El açması erişte; hamuru lokum gibi kesilir.", l:"Erişte burada, elde açılır; hamur lokum gibi küçük kareler halinde kesildiği için lokum pilavı deriz. Tereyağıyla tencereye girer."},
+    en:{n:"Lokum Pilaf", d:"Handmade noodles, cut into small squares.", l:"The dough is rolled and cut by hand here into small squares — lokum, hence the name. It goes into the pot with butter."}
   },
   "tatar":{
     img:null, icon:"🥟", p:"160 ₺", b:["helal"],
     tr:{n:"Tatar", d:"Geleneksel Türk usulü tatar böreği.", l:"El açması hamurla hazırlanan geleneksel tatar böreği."},
     en:{n:"Tatar Böreği", d:"Traditional Turkish tatar pastry.", l:"Traditional tatar pastry, made with hand-rolled dough."}
-  },
-  "eriste":{
-    img:null, icon:"🍝", p:"160 ₺", b:["veg","helal","home"],
-    tr:{n:"Erişte", d:"El yapımı geleneksel erişte.",
-        l:"Erişte burada, elde açılır. Çarşamba günü tereyağıyla tencereye girer."},
-    en:{n:"Erişte — Handmade Noodles", d:"Handmade traditional noodles.",
-        l:"The noodles are rolled and cut by hand here. On Wednesdays they go into the pot with butter."}
   },
 
   "cacik":{
@@ -658,7 +651,7 @@ const ALWAYS = ["kuru-fasulye","tas-kebabi","tavuk-sote","pilav","bulgur-pilavi"
 const DAYS = [
   {d:1, tr:"Pazartesi", en:"Monday",    s:{tr:"Pzt",en:"Mon"}, items:["taze-fasulye","lokum-pilavi"]},
   {d:2, tr:"Salı",      en:"Tuesday",   s:{tr:"Sal",en:"Tue"}, items:["bezelyeli-kofte"], ikram:"sutlac"},
-  {d:3, tr:"Çarşamba",  en:"Wednesday", s:{tr:"Çar",en:"Wed"}, items:["patlican-musakka","eriste"], ikram:"sutlac"},
+  {d:3, tr:"Çarşamba",  en:"Wednesday", s:{tr:"Çar",en:"Wed"}, items:["patlican-musakka","lokum-pilavi"], ikram:"sutlac"},
   {d:4, tr:"Perşembe",  en:"Thursday",  s:{tr:"Per",en:"Thu"}, items:["bamya"], ikram:{yaz:"karpuz", kis:"kasik-helva"}},
   {d:5, tr:"Cuma",      en:"Friday",    s:{tr:"Cum",en:"Fri"}, items:["imam-bayildi"], ikram:{yaz:"karpuz", kis:"kasik-helva"}},
   {d:6, tr:"Cumartesi", en:"Saturday",  s:{tr:"Cmt",en:"Sat"}, items:[]},
@@ -670,7 +663,7 @@ const MENU = [
   {id:"ana", tr:{t:"Ana Yemekler", s:"Tencereden çıkanlar"}, en:{t:"Main Dishes", s:"Straight from the pot"},
    items:["kuru-fasulye","tas-kebabi","tavuk-sote","taze-fasulye","patlican-musakka","imam-bayildi","salcali-kofte","bezelyeli-kofte","karniyarik","tavuk-haslama","tavuk-baget","kizartma-karisik","bamya","pirasa"]},
   {id:"pilav", tr:{t:"Pilav & Yan Yemekler", s:"Sofranın tamamlayıcıları"}, en:{t:"Pilafs & Sides", s:"What completes the table"},
-   items:["pilav","bulgur-pilavi","lokum-pilavi","eriste","tatar"]},
+   items:["pilav","bulgur-pilavi","lokum-pilavi","tatar"]},
   {id:"soguk", tr:{t:"Soğuk Yemekler & Yoğurt", s:"Yanında serinletenler"}, en:{t:"Cold Dishes & Yoghurt", s:"To cool the table"},
    items:["cacik","yogurt","ev-tursusu"]},
   {id:"corba", tr:{t:"Çorbalar", s:"Her gün taze pişer"}, en:{t:"Soups", s:"Made fresh daily"},
