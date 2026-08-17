@@ -346,7 +346,9 @@ section{padding:92px 0}
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
 }
 .g-track{display:flex;gap:14px;width:max-content;animation:g-kay 90s linear infinite}
-.g-marquee:hover .g-track,.g-marquee:focus-within .g-track,.g-marquee.duraklat .g-track{animation-play-state:paused}
+.g-marquee.duraklat .g-track{animation-play-state:paused}
+@media (hover:hover) and (pointer:fine){.g-marquee:hover .g-track{animation-play-state:paused}}
+.g-marquee:has(:focus-visible) .g-track{animation-play-state:paused}
 @keyframes g-kay{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-50% - 7px),0,0)}}
 @media (prefers-reduced-motion:reduce){.g-track{animation:none}.g-marquee{overflow-x:auto}}
 .g-card{
@@ -1154,11 +1156,12 @@ body.menu-open .wa-fab{display:none}
     if (!t || t.scrollHeight - t.clientHeight < 4) return; // sigiyorsa dugme gereksiz
     const d = document.createElement('button');
     d.type = 'button'; d.className = 'g-more'; d.textContent = 'Devamını oku';
-    d.addEventListener('click', () => {
+    d.addEventListener('click', (e) => {
       const es = kartlar[(i + yarim) % kartlar.length];    // ayni yorumun oteki kopyasi
       const acildi = !k.classList.contains('acik');
       [k, es].forEach(c => { if (c) { c.classList.toggle('acik', acildi); etiketle(c); } });
       guncelle();                                          // acik yorum varsa dur, kalmadiysa ak
+      if (e.detail) d.blur();                              // fare/dokunma tiklamasinda odak kalmasin
     });
     t.after(d);
   });
