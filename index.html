@@ -346,7 +346,8 @@ section{padding:92px 0}
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
 }
 .g-track{display:flex;gap:14px;width:max-content;animation:g-kay 90s linear infinite}
-.g-marquee:hover .g-track,.g-marquee:focus-within .g-track,.g-marquee.duraklat .g-track{animation-play-state:paused}
+@media (hover:hover) and (pointer:fine){.g-marquee:hover .g-track{animation-play-state:paused}}
+.g-marquee:has(:focus-visible) .g-track{animation-play-state:paused}
 @keyframes g-kay{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-50% - 7px),0,0)}}
 @media (prefers-reduced-motion:reduce){.g-track{animation:none}.g-marquee{overflow-x:auto}}
 .g-card{
@@ -384,6 +385,14 @@ section{padding:92px 0}
 .press .kicker::before{background:var(--gold)}
 .press h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:600;margin-bottom:18px}
 .press>.press-inner>p{color:#C9BBA4;max-width:38rem;margin:0 auto 46px}
+.video-frame{
+  aspect-ratio:16/9;max-width:880px;margin:0 auto 64px;
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 18px 44px rgba(46,36,24,.12);
+  background:#000;
+}
+.video-frame iframe{width:100%;height:100%;border:0;display:block}
 .press-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
 .press-card{
   background:var(--dark-2);
@@ -798,6 +807,10 @@ body.menu-open .wa-fab{display:none}
         <p class="story-close">Bazen bir sofranın etrafında paylaşılan güzel bir yemek, yıllar boyunca anlatılacak bir hikâyenin başlangıcı olur. Bizim hikâyemiz de tam olarak böyle başladı.</p>
       </div>
 
+      <div class="video-frame reveal">
+        <iframe src="https://www.youtube-nocookie.com/embed/cDIDaf41QuI" title="Hüseyin Amca'nın Yeri — hikâyemiz video haberde" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
       <div class="story-grid">
         <div class="quote-card reveal">
           <blockquote>Buradan ekmek yedim, onun için bırakamıyorum. Dükkâna günde iki üç defa gidiyorum. Yemekleri kontrol etmediğim zaman içim rahat etmiyor.</blockquote>
@@ -1129,18 +1142,31 @@ body.menu-open .wa-fab{display:none}
   const serit  = document.querySelector('.g-marquee');
   const kartlar = [...document.querySelectorAll('.g-card')];
   const yarim  = kartlar.length / 2;                      // ikinci yari birebir kopya
+
+  function etiketle(c){ const b = c.querySelector('.g-more'); if (b) b.textContent = c.classList.contains('acik') ? 'Gizle' : 'Devamını oku'; }
+  function hepsiniKapat(){
+    serit.querySelectorAll('.g-card.acik').forEach(c => { c.classList.remove('acik'); etiketle(c); });
+  }
+
   kartlar.forEach((k, i) => {
     const t = k.querySelector('.g-text');
     if (!t || t.scrollHeight - t.clientHeight < 4) return; // sigiyorsa dugme gereksiz
     const d = document.createElement('button');
     d.type = 'button'; d.className = 'g-more'; d.textContent = 'Devamını oku';
-    d.addEventListener('click', () => {
+    d.addEventListener('click', (e) => {
       const es = kartlar[(i + yarim) % kartlar.length];    // ayni yorumun oteki kopyasi
-      [k, es].forEach(c => { c && c.classList.add('acik'); c && c.querySelector('.g-more')?.remove(); });
-      serit.classList.add('duraklat');                     // okurken akmasin
+      const acildi = !k.classList.contains('acik');
+      [k, es].forEach(c => { if (c) { c.classList.toggle('acik', acildi); etiketle(c); } });
+      if (e.detail) d.blur();                              // fare/dokunma tiklamasinda odak kalmasin
     });
     t.after(d);
   });
+
+  /* serit gorunumden cikinca acik yorumlar toparlansin; akis hover'a bagli, acik kart durdurmaz */
+  serit.addEventListener('mouseleave', hepsiniKapat);
+  new IntersectionObserver(girisler => {
+    girisler.forEach(g => { if (!g.isIntersecting) hepsiniKapat(); });
+  }).observe(serit);
 })();
 
 /* ---------- mobil menü ---------- */
