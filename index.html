@@ -346,7 +346,6 @@ section{padding:92px 0}
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
 }
 .g-track{display:flex;gap:14px;width:max-content;animation:g-kay 90s linear infinite}
-.g-marquee.duraklat .g-track{animation-play-state:paused}
 @media (hover:hover) and (pointer:fine){.g-marquee:hover .g-track{animation-play-state:paused}}
 .g-marquee:has(:focus-visible) .g-track{animation-play-state:paused}
 @keyframes g-kay{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-50% - 7px),0,0)}}
@@ -1145,10 +1144,8 @@ body.menu-open .wa-fab{display:none}
   const yarim  = kartlar.length / 2;                      // ikinci yari birebir kopya
 
   function etiketle(c){ const b = c.querySelector('.g-more'); if (b) b.textContent = c.classList.contains('acik') ? 'Gizle' : 'Devamını oku'; }
-  function guncelle(){ serit.classList.toggle('duraklat', !!serit.querySelector('.g-card.acik')); }
   function hepsiniKapat(){
     serit.querySelectorAll('.g-card.acik').forEach(c => { c.classList.remove('acik'); etiketle(c); });
-    guncelle();
   }
 
   kartlar.forEach((k, i) => {
@@ -1160,13 +1157,12 @@ body.menu-open .wa-fab{display:none}
       const es = kartlar[(i + yarim) % kartlar.length];    // ayni yorumun oteki kopyasi
       const acildi = !k.classList.contains('acik');
       [k, es].forEach(c => { if (c) { c.classList.toggle('acik', acildi); etiketle(c); } });
-      guncelle();                                          // acik yorum varsa dur, kalmadiysa ak
       if (e.detail) d.blur();                              // fare/dokunma tiklamasinda odak kalmasin
     });
     t.after(d);
   });
 
-  /* okuyucu ayrilinca akis kendiliginden devam etsin */
+  /* serit gorunumden cikinca acik yorumlar toparlansin; akis hover'a bagli, acik kart durdurmaz */
   serit.addEventListener('mouseleave', hepsiniKapat);
   new IntersectionObserver(girisler => {
     girisler.forEach(g => { if (!g.isIntersecting) hepsiniKapat(); });
