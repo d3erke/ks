@@ -384,6 +384,13 @@ section{padding:92px 0}
 .press .kicker::before{background:var(--gold)}
 .press h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:600;margin-bottom:18px}
 .press>.press-inner>p{color:#C9BBA4;max-width:38rem;margin:0 auto 46px}
+.press-video{
+  aspect-ratio:16/9;max-width:880px;margin:0 auto 46px;
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid rgba(239,230,214,.14);
+  background:#000;
+}
+.press-video iframe{width:100%;height:100%;border:0;display:block}
 .press-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
 .press-card{
   background:var(--dark-2);
@@ -832,6 +839,9 @@ body.menu-open .wa-fab{display:none}
         <span class="kicker">Basında Biz</span>
         <h2>Hakkımızda yazılanlar</h2>
         <p>Zaman zaman basında da yer alıyoruz. Birkaçı burada.</p>
+        <div class="press-video reveal">
+          <iframe src="https://www.youtube-nocookie.com/embed/cDIDaf41QuI" title="Hüseyin Amca'nın Yeri — video haber" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
         <div class="press-cards">
           <a class="press-card" href="https://www.aa.com.tr/tr/insana-dair/kuru-fasulyeci-97-yasindaki-huseyin-amca-65-yildir-tezgahindan-ayrilamiyor/2999216" target="_blank" rel="noopener">
             <b>Anadolu Ajansı</b>
