@@ -1,0 +1,37 @@
+# Meşhur Kuru Fasulyeci Hüseyin Amca'nın Yeri
+
+> Ortakent'te (Bodrum) 1955'ten beri işleyen aile lokantası. Tencere yemeği yapar:
+> kuru fasulye, tas kebabı, ev turşusu. Kurucu Hüseyin Uysal; mutfak bugün oğlu
+> Arif Usta'da, torunu Hüseyin de aynı mutfakta.
+
+## Künye
+- Ad: Meşhur Kuru Fasulyeci Hüseyin Amca'nın Yeri
+- Tür: esnaf lokantası / ev yemekleri (Türk mutfağı)
+- Kuruluş: 1955
+- Adres: Müskebi Mah. Cumhuriyet Cad. No:110, Ortakent — Belediye binası yanı, 48400 Bodrum / Muğla
+- Konum: 37.048951, 27.345167
+- Telefon: 0252 358 21 29 · WhatsApp: +90 507 650 28 33
+- Saatler: Sabah 09.00'da açılır; yemekler bitince kapanır. Öğlen saatleri en taze zaman.
+- Google Haritalar puanı: 4,4 (282 değerlendirme)
+- Restaurant Guru: 2026 "Recommended" seçkisinde
+
+## Sayfalar
+- [Ana sayfa](https://huseyinamca.com/): lokantanın hikâyesi, aile, basında çıkanlar, misafir yorumları, ulaşım.
+- [Menü](https://huseyinamca.com/menu.html): bütün yemekler ve fiyatlar, gün gün program, ikram takvimi, TR/EN.
+- [Kuru fasulye](https://huseyinamca.com/kuru-fasulye.html): kuru fasulyenin nasıl piştiği, yanında gelenler, fiyatlar.
+- [Tas kebabı](https://huseyinamca.com/tas-kebabi.html): tas kebabının hazırlanışı, pilavla servisi, fiyatlar.
+- [Ortakent lokanta](https://huseyinamca.com/ortakent-lokanta.html): Müskebi Mahallesi'ndeki yer, mahalle ve aile tarihi.
+- [Bodrum ev yemekleri](https://huseyinamca.com/bodrum-ev-yemekleri.html): esnaf lokantası düzeni, gün gün program, ikram takvimi, fiyat listesi.
+- [Ulaşım](https://huseyinamca.com/ulasim.html): konum, yön yön yol tarifi bağlantıları, toplu taşıma, park, harita.
+
+## Menü başlıkları
+- Ana yemekler: kuru fasulye, tas kebabı, tavuk sote, taze fasulye, patlıcan musakka, imam bayıldı, salçalı köfte, bezelyeli köfte, karnıyarık, tavuk haşlama, fırında tavuk baget, kızartma karışık, bamya, pırasa
+- Pilav ve yan yemekler: pilav, bulgur pilavı, lokum pilavı, tatar
+- Soğuk yemekler ve yoğurt: cacık, yoğurt, ev turşusu
+- Çorbalar: mercimek, tavuk suyu, günün çorbası
+- İçecekler: su, soda, ayran, pepsi
+
+## Notlar
+- Bu belge bilgi vermek içindir; sıralama ya da üstünlük iddiası taşımaz.
+- Fiyatlar ve günün yemekleri değişebilir; en güncel hâli menü sayfasında ve WhatsApp'tadır.
+- Ayrıntılı sürüm: https://huseyinamca.com/llms-full.txt
