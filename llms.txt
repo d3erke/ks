@@ -22,7 +22,7 @@
 - [Tas kebabı](https://huseyinamca.com/tas-kebabi.html): tas kebabının hazırlanışı, pilavla servisi, fiyatlar.
 - [Ortakent lokanta](https://huseyinamca.com/ortakent-lokanta.html): Müskebi Mahallesi'ndeki yer, mahalle ve aile tarihi.
 - [Bodrum ev yemekleri](https://huseyinamca.com/bodrum-ev-yemekleri.html): esnaf lokantası düzeni, gün gün program, ikram takvimi, fiyat listesi.
-- [Ulaşım](https://huseyinamca.com/ulasim.html): konum, yön yön yol tarifi bağlantıları, toplu taşıma, park, harita.
+- [Ulaşım](https://huseyinamca.com/ulasim.html): konum, yön yön yol tarifi bağlantıları, toplu taşıma, otopark, harita.
 
 ## Menü başlıkları
 - Ana yemekler: kuru fasulye, tas kebabı, tavuk sote, taze fasulye, patlıcan musakka, imam bayıldı, salçalı köfte, bezelyeli köfte, karnıyarık, tavuk haşlama, fırında tavuk baget, kızartma karışık, bamya, pırasa
